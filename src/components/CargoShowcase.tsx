@@ -137,17 +137,40 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
         {/* Header Title with consistent styling */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div className="text-center lg:text-left">
-            <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
-              // {language === 'PT' ? 'PORTFÓLIO OPERACIONAL' : 'OPERATIONAL SHOWCASE'}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase">
+            {/* SUBTÍTULO: Fade-in elástico da esquerda */}
+            <motion.span 
+              initial={{ x: -20, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2"
+            >
+              {language === 'PT' ? '// PORTFÓLIO OPERACIONAL' : '// OPERATIONAL SHOWCASE'}
+            </motion.span>
+
+            {/* TÍTULO PRINCIPAL: Tracking Focus Reveal */}
+            <motion.h2 
+              initial={{ opacity: 0, letterSpacing: "-0.05em", filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, letterSpacing: "0px", filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+              className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase"
+            >
               {language === 'PT' ? 'A Nossa Frota em Ação' : 'Our Heavy Fleet in Action'}
-            </h2>
-            <p className="mt-3 text-slate-500 font-light text-sm md:text-base max-w-xl lg:max-w-2xl">
+            </motion.h2>
+
+            {/* DESCRIÇÃO: Fade-in suave */}
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-3 text-slate-500 font-light text-sm md:text-base max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
+            >
               {language === 'PT'
                 ? 'Visualização em tempo real das nossas soluções pesadas cruzando os principais eixos aduaneiros e corredores industriais da África Austral.'
                 : 'Real-world glimpse of our heavy haulage solutions traversing the major custom axes and industrial corridors of Southern Africa.'}
-            </p>
+            </motion.p>
           </div>
 
           {/* SADC Secure Badge */}
