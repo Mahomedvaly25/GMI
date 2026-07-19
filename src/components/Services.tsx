@@ -12,6 +12,26 @@ interface ServicesProps {
 export default function Services({ language, onNavigateToCalculator }: ServicesProps) {
   const targetRef = useRef<HTMLDivElement>(null);
 
+  // Variantes para o Stagger dos caracteres do Subtítulo
+  const letterVariants = {
+    initial: { y: "100%", opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.4, ease: [0.215, 0.61, 0.355, 1] } }
+  };
+
+  const tagContainerVariants = {
+    animate: { transition: { staggerChildren: 0.02 } }
+  };
+
+  // Variantes para o Título Principal (Palavra por Palavra / Kinetic)
+  const titleContainerVariants = {
+    animate: { transition: { staggerChildren: 0.05 } }
+  };
+
+  const wordVariants = {
+    initial: { y: 30, opacity: 0, rotate: 2 },
+    animate: { y: 0, opacity: 1, rotate: 0, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } }
+  };
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start end', 'end start'],
@@ -80,19 +100,50 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
       {/* ─── CONTEÚDO (sempre visível z-20) ────────────────────────────── */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center">
 
-        {/* Section Title — text-white em todos os breakpoints */}
+        {/* Section Title — text-white com animações cinéticas */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold tracking-widest text-brand-yellow uppercase bg-brand-yellow/10 border border-brand-yellow/20 px-3.5 py-1.5 rounded-full">
-            {language === 'PT' ? 'RIGOR OPERACIONAL' : 'OPERATIONAL RIGOR'}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-white mt-4 tracking-tight">
-            {language === 'PT' ? 'Nossos Serviços Industriais' : 'Our Industrial Services'}
-          </h2>
-          <p className="text-base text-slate-200 mt-4 leading-relaxed font-light">
+          {/* SUBTÍTULO: Kinetic Character Reveal */}
+          <motion.div 
+            variants={tagContainerVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            className="inline-flex overflow-hidden text-brand-yellow font-bold text-xs uppercase tracking-widest mb-3"
+          >
+            {(language === 'PT' ? '// RIGOR OPERACIONAL' : '// OPERATIONAL RIGOR').split("").map((char, index) => (
+              <motion.span key={index} variants={letterVariants} className="inline-block whitespace-pre">
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+
+          {/* TÍTULO: Kinetic Word Stagger */}
+          <motion.h2 
+            variants={titleContainerVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-3xl md:text-5xl font-black text-white mt-3 mb-4 max-w-3xl mx-auto leading-tight overflow-hidden flex flex-wrap justify-center gap-x-3"
+          >
+            {(language === 'PT' ? 'Nossos Serviços Industriais' : 'Our Industrial Services').split(" ").map((word, index) => (
+              <motion.span key={index} variants={wordVariants} className="inline-block origin-left">
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+
+          {/* DESCRIÇÃO: Fade-in suave acoplado */}
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-slate-200 max-w-2xl mx-auto text-base md:text-lg font-light mt-4 leading-relaxed"
+          >
             {language === 'PT'
               ? 'Soluções logísticas e aduaneiras integradas com rigor operacional, segurança de dados e conformidade integral SADC.'
               : 'Integrated logistics and customs solutions with operational rigor, data security, and full SADC compliance.'}
-          </p>
+          </motion.p>
         </div>
 
         {/* Services Grid */}
