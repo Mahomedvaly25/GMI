@@ -1,0 +1,271 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Language } from '../types';
+import { Truck, ShieldCheck, ArrowRight, Eye, Layers } from 'lucide-react';
+
+interface CargoShowcaseProps {
+  language: Language;
+}
+
+type CategoryType = 'all' | 'abnormal' | 'general' | 'fuels' | 'rent';
+
+interface ShowcaseItem {
+  id: string;
+  category: Exclude<CategoryType, 'all'>;
+  titlePT: string;
+  titleEN: string;
+  subtitlePT: string;
+  subtitleEN: string;
+  imageSrc: string;
+  badgePT: string;
+  badgeEN: string;
+}
+
+const SHOWCASE_ITEMS: ShowcaseItem[] = [
+  {
+    id: 'item-1',
+    category: 'abnormal',
+    titlePT: 'Transporte de Escavadora Mineira',
+    titleEN: 'Mining Excavator Haulage',
+    subtitlePT: 'Operação Lowbed — Rota Beira para Tete',
+    subtitleEN: 'Lowbed Operation — Beira to Tete Route',
+    imageSrc: 'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'item-2',
+    category: 'fuels',
+    titlePT: 'Distribuição de Granéis Líquidos',
+    titleEN: 'Liquid Bulk Distribution',
+    subtitlePT: 'Cisternas Inox — Corredor da Beira',
+    subtitleEN: 'Stainless Steel Tankers — Beira Corridor',
+    imageSrc: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Combustíveis',
+    badgeEN: 'Fuels & Tankers'
+  },
+  {
+    id: 'item-3',
+    category: 'general',
+    titlePT: 'Logística de Contentores SADC',
+    titleEN: 'SADC Container Logistics',
+    subtitlePT: 'Porta-Contentores — Rota Harare (Zimbabwe)',
+    subtitleEN: 'Container Carrier — Harare Route (Zimbabwe)',
+    imageSrc: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
+  },
+  {
+    id: 'item-4',
+    category: 'abnormal',
+    titlePT: 'Componentes Industriais de Grande Porte',
+    titleEN: 'Oversized Industrial Components',
+    subtitlePT: 'Escolta Dedicada — Rota de Trânsito Zâmbia',
+    subtitleEN: 'Dedicated Escort — Zambia Transit Route',
+    imageSrc: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'item-7',
+    category: 'rent',
+    titlePT: 'Aluguer de Escavadoras de Grande Porte',
+    titleEN: 'Heavy-Duty Excavator Rental',
+    subtitlePT: 'Operações de Mineração e Infraestruturas',
+    subtitleEN: 'Mining & Infrastructure Operations',
+    imageSrc: '/assets/sany-excavator.jpg',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'item-8',
+    category: 'rent',
+    titlePT: 'Frota de Camiões Fora-de-Estrada',
+    titleEN: 'Off-Road Dump Truck Fleet',
+    subtitlePT: 'Movimentação de Terras e Terraplanagem',
+    subtitleEN: 'Earthmoving & Land Grading',
+    imageSrc: '/assets/tonly-truck.jpg',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'item-5',
+    category: 'general',
+    titlePT: 'Transporte de Cargas Agrícolas',
+    titleEN: 'Agricultural Cargo Transport',
+    subtitlePT: 'Basculantes Interlink — Escala Regional SADC',
+    subtitleEN: 'Side Tipper Interlinks — Regional SADC Scale',
+    imageSrc: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
+  },
+  {
+    id: 'item-6',
+    category: 'fuels',
+    titlePT: 'Abastecimento a Terminais Remotos',
+    titleEN: 'Remote Terminal Fuel Supply',
+    subtitlePT: 'Logística Especializada — Rotas Inter-estatais',
+    subtitleEN: 'Specialized Fuel Logistics — Inter-state Routes',
+    imageSrc: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800',
+    badgePT: 'Combustíveis',
+    badgeEN: 'Fuels & Tankers'
+  }
+];
+
+export default function CargoShowcase({ language }: CargoShowcaseProps) {
+  const [activeFilter, setActiveFilter] = useState<CategoryType>('all');
+
+  const filteredItems = activeFilter === 'all' 
+    ? SHOWCASE_ITEMS 
+    : SHOWCASE_ITEMS.filter(item => item.category === activeFilter);
+
+  const filters = [
+    { type: 'all' as CategoryType, pt: 'Todos', en: 'All Cargoes' },
+    { type: 'abnormal' as CategoryType, pt: 'Cargas Anormais', en: 'Abnormal Loads' },
+    { type: 'general' as CategoryType, pt: 'Carga Geral', en: 'General Cargo' },
+    { type: 'fuels' as CategoryType, pt: 'Combustíveis', en: 'Fuels & Tankers' },
+    { type: 'rent' as CategoryType, pt: 'Aluguer de Máquinas', en: 'Equipment Rental' }
+  ];
+
+  return (
+    <section id="portfolio-section" className="pt-6 pb-12 md:py-24 bg-white relative border-b border-slate-100 overflow-hidden">
+      {/* Background grids watermark */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.015] bg-[radial-gradient(#1E2229_1.5px,transparent_1.5px)] [background-size:32px_32px]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header Title with consistent styling */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+          <div className="text-center lg:text-left">
+            <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
+              // {language === 'PT' ? 'PORTFÓLIO OPERACIONAL' : 'OPERATIONAL SHOWCASE'}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase">
+              {language === 'PT' ? 'A Nossa Frota em Ação' : 'Our Heavy Fleet in Action'}
+            </h2>
+            <p className="mt-3 text-slate-500 font-light text-sm md:text-base max-w-xl lg:max-w-2xl">
+              {language === 'PT'
+                ? 'Visualização em tempo real das nossas soluções pesadas cruzando os principais eixos aduaneiros e corredores industriais da África Austral.'
+                : 'Real-world glimpse of our heavy haulage solutions traversing the major custom axes and industrial corridors of Southern Africa.'}
+            </p>
+          </div>
+
+          {/* SADC Secure Badge */}
+          <div className="flex items-center gap-3 self-center lg:self-end px-5 py-3 bg-slate-50 border border-slate-100 rounded-2xl">
+            <ShieldCheck className="w-5 h-5 text-brand-yellow" />
+            <div className="text-left font-mono">
+              <p className="text-[10px] font-bold text-brand-dark uppercase tracking-wider">
+                {language === 'PT' ? 'Rastreio Ativo' : 'Active Tracking'}
+              </p>
+              <p className="text-[9px] text-slate-400">Beira Gateway Hub 24/7</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Filter Navigation Bar */}
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-12">
+          {filters.map((filter) => {
+            const label = language === 'PT' ? filter.pt : filter.en;
+            const isSelected = activeFilter === filter.type;
+
+            return (
+              <button
+                key={filter.type}
+                onClick={() => setActiveFilter(filter.type)}
+                className={`px-5 py-2.5 text-xs font-mono font-bold tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
+                  isSelected 
+                    ? 'bg-slate-900 text-white shadow-md shadow-slate-900/10' 
+                    : 'bg-slate-50 text-slate-500 border border-slate-100 hover:bg-slate-100 hover:text-slate-800'
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Dynamic Image Grid using Framer Motion Layout Animations */}
+        <motion.div 
+          layout 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item) => {
+              const title = language === 'PT' ? item.titlePT : item.titleEN;
+              const subtitle = language === 'PT' ? item.subtitlePT : item.subtitleEN;
+              const badge = language === 'PT' ? item.badgePT : item.badgeEN;
+
+              return (
+                <motion.div
+                  layout
+                  key={item.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  className="group relative h-[360px] rounded-3xl overflow-hidden bg-slate-100 border border-slate-100 shadow-xs hover:shadow-lg transition-all duration-300"
+                >
+                  {/* Photo with hover zoom */}
+                  <motion.img
+                    src={item.imageSrc}
+                    alt={title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover select-none"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:via-slate-950/50" />
+
+                  {/* Category Pill Top-Left */}
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="px-3.5 py-1.5 rounded-lg bg-brand-yellow text-slate-900 font-mono font-extrabold text-[9px] uppercase tracking-widest shadow-sm">
+                      {badge}
+                    </span>
+                  </div>
+
+                  {/* Bottom Info Details */}
+                  <div className="absolute bottom-0 inset-x-0 p-6 z-20 text-left">
+                    <p className="text-[10px] font-mono font-bold text-brand-yellow/95 uppercase tracking-widest mb-1.5">
+                      {subtitle}
+                    </p>
+                    <h3 className="text-base md:text-lg font-display font-black text-white uppercase leading-tight tracking-tight">
+                      {title}
+                    </h3>
+                    
+                    {/* Expand View Action Hover */}
+                    <div className="mt-4 flex items-center gap-1.5 text-[10px] font-mono font-bold text-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>{language === 'PT' ? 'FROTA MGI DISPONÍVEL' : 'AVAILABLE MGI FLEET'}</span>
+                      <ArrowRight className="w-3 h-3 text-brand-yellow" />
+                    </div>
+                  </div>
+
+                  {/* Aesthetic Corner Border Decoration on hover */}
+                  <div className="absolute inset-4 border border-white/0 rounded-2xl pointer-events-none group-hover:border-white/10 transition-all duration-300" />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Footer Link / Prompt */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-slate-50 hover:bg-slate-100/80 border border-slate-100 rounded-2xl transition-all cursor-pointer group" onClick={() => {
+            const el = document.getElementById('contacto');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>
+            <Layers className="w-4 h-4 text-brand-yellow" />
+            <span className="text-xs font-mono font-bold text-slate-600 group-hover:text-brand-dark transition-colors">
+              {language === 'PT' 
+                ? 'Precisa de Transporte Especial? Solicite uma Cotação Dedicada' 
+                : 'Need Special Haulage? Request a Dedicated Quotation'}
+            </span>
+            <ArrowRight className="w-3.5 h-3.5 text-brand-yellow group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

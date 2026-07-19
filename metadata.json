@@ -1,0 +1,6 @@
+{
+  "name": "MGI Landing Page",
+  "description": "High-Impact & Bright modern landing page for Mozambique Group Investments, Lda. (MGI), highlighting transport and logistics in Southern Africa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
