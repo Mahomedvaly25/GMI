@@ -202,17 +202,51 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
           <div className="flex flex-col lg:flex-1 justify-start gap-4 lg:gap-8 min-h-0 w-full">
             {/* Content Header (Stays anchored at the top) */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full shrink-0">
-              <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-1">
-                // {language === 'PT' ? 'FROTA PESADA PRÓPRIA' : 'OUR HEAVY-DUTY EQUIPMENT'}
-              </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-brand-dark tracking-tight uppercase leading-none">
-                {language === 'PT' ? 'Nossa Frota & Capacidade Operacional' : 'Our Fleet & Operational Capacity'}
-              </h2>
-              <p className="text-slate-500 font-light text-xs sm:text-sm lg:text-base max-w-3xl mt-2 leading-relaxed">
+              {/* SUBTÍTULO */}
+              <motion.span 
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-1"
+              >
+                {language === 'PT' ? '// FROTA PESADA PRÓPRIA' : '// OUR HEAVY-DUTY EQUIPMENT'}
+              </motion.span>
+
+              {/* TÍTULO PRINCIPAL: Kinetic Typography Stagger */}
+              <motion.h2 
+                variants={{ animate: { transition: { staggerChildren: 0.05 } } }}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: "-100px" }}
+                className="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-brand-dark tracking-tight uppercase leading-none overflow-hidden flex flex-wrap gap-x-2 py-1"
+              >
+                {(language === 'PT' ? 'Nossa Frota & Capacidade Operacional' : 'Our Fleet & Operational Capacity').split(" ").map((word, index) => (
+                  <motion.span 
+                    key={index} 
+                    variants={{
+                      initial: { y: 30, opacity: 0, rotate: 2 },
+                      animate: { y: 0, opacity: 1, rotate: 0, transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } }
+                    }} 
+                    className="inline-block origin-left"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h2>
+
+              {/* DESCRIÇÃO */}
+              <motion.p 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="text-slate-500 font-light text-xs sm:text-sm lg:text-base max-w-3xl mt-2 leading-relaxed"
+              >
                 {language === 'PT'
                   ? 'Conheça a frota de tração pesada e atrelados especiais MGI. Projetados para máxima segurança nos eixos rodoviários SADC.'
                   : 'Explore our specialized MGI heavy haulage equipment and custom trailer fleets built for primary SADC regional corridors.'}
-              </p>
+              </motion.p>
             </div>
 
             {/* Sliding horizontal container tracking vertical scroll */}
