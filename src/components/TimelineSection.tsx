@@ -89,17 +89,48 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
         
         {/* Section Header */}
         <div className="mb-20 text-center lg:text-left">
-          <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
-            // {language === 'PT' ? 'A NOSSA JORNADA' : 'OUR HISTORY & HERITAGE'}
-          </span>
-          <h2 className="text-4xl font-display font-black text-brand-dark md:text-5xl tracking-tight uppercase">
-            {language === 'PT' ? 'Quatro Décadas de História e Solidez' : 'Four Decades of Solid History'}
+          {/* SUBTÍTULO: Fade-in suave */}
+          <motion.span 
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2"
+          >
+            {language === 'PT' ? '// A NOSSA JORNADA' : '// OUR HISTORY & HERITAGE'}
+          </motion.span>
+
+          {/* TÍTULO: Kinetic Blur-In Stagger */}
+          <h2 className="text-3xl md:text-5xl font-black text-brand-dark mt-2 mb-4 leading-tight flex flex-wrap gap-x-3 justify-center lg:justify-start uppercase">
+            {(language === 'PT' ? 'Quatro Décadas de História e Solidez' : 'Four Decades of Solid History').split(" ").map((word, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, filter: "blur(12px)", y: 20 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                viewport={{ once: false, margin: "-50px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.06,
+                  ease: "easeOut"
+                }}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            ))}
           </h2>
-          <p className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed">
+
+          {/* DESCRIÇÃO: Fade-in suave */}
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed mx-auto lg:mx-0"
+          >
             {language === 'PT'
               ? 'Uma trajectória marcada por investimentos estratégicos, superação logística regional e compromisso inabalável com o comércio da África Austral.'
               : 'A trajectory marked by strategic investments, outstanding regional logistics performance, and unwavering commitment to Southern African trade.'}
-          </p>
+          </motion.p>
         </div>
 
         {/* Timeline Container */}
@@ -144,7 +175,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
+                      viewport={{ once: false, margin: '-100px' }}
                       transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeOut' }}
                       className="inline-block"
                     >
@@ -163,7 +194,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
+                      viewport={{ once: false, margin: '-100px' }}
                       transition={{ duration: 0.6, delay: idx * 0.15, ease: 'easeOut' }}
                       className="@container w-full max-w-[520px] bg-slate-50 border border-slate-100 rounded-[28px] p-6 md:p-8 hover:shadow-lg transition-all duration-300 group relative"
                     >

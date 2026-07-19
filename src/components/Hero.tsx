@@ -100,12 +100,13 @@ export default function Hero({ language, onNavigateToCalculator, onNavigateToCor
               </span>
             </motion.div>
 
-            {/* Kinetic Typography "Pop-in" Word Container - Giant High-Impact Text */}
+            {/* Kinetic Typography Line Mask Reveal */}
             <motion.h1
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-5xl sm:text-6xl lg:text-[80px] font-display font-black text-brand-dark tracking-[-3px] leading-[0.95] text-left"
+              variants={{ animate: { transition: { staggerChildren: 0.04 } } }}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: false, margin: "-10% 0px 0px 0px" }}
+              className="text-5xl sm:text-6xl lg:text-[80px] font-display font-black text-brand-dark tracking-[-3px] leading-[0.95] text-left overflow-hidden flex flex-wrap"
             >
               {titleWords.map((word, i) => {
                 const isHighlight = 
@@ -120,8 +121,11 @@ export default function Hero({ language, onNavigateToCalculator, onNavigateToCor
                 return (
                   <motion.span
                     key={i}
-                    variants={wordVariants}
-                    className={`inline-block mr-[0.25em] ${
+                    variants={{
+                      initial: { y: "100%", opacity: 0 },
+                      animate: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.215, 0.610, 0.355, 1.000] } }
+                    }}
+                    className={`inline-block origin-bottom mr-[0.25em] ${
                       isHighlight ? 'text-brand-yellow drop-shadow-sm' : ''
                     }`}
                   >

@@ -110,17 +110,39 @@ export default function RoutesSection({ language, onNavigateToContact }: RoutesS
         
         {/* Alinhamento de Título Comercial */}
         <div className="mb-12">
-          <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
-            // {language === 'PT' ? 'CONECTIVIDADE TRANSFRONTEIRIÇA' : 'CROSS-BORDER CONNECTIVITY'}
-          </span>
-          <h2 className="text-4xl font-display font-black text-brand-dark md:text-5xl tracking-tight">
+          {/* SUBTÍTULO: Expansion tracking */}
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: "-0.2em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.15em" }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-brand-yellow font-mono font-bold text-xs uppercase block mb-3"
+          >
+            {language === 'PT' ? '// CONECTIVIDADE TRANSFRONTEIRIÇA' : '// CROSS-BORDER CONNECTIVITY'}
+          </motion.span>
+
+          {/* TÍTULO: Tracking Focus Reveal */}
+          <motion.h2 
+            initial={{ opacity: 0, letterSpacing: "-0.05em", filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, letterSpacing: "0px", filter: "blur(0px)" }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
+            className="text-3xl md:text-5xl font-black text-brand-dark leading-tight uppercase"
+          >
             {language === 'PT' ? 'Nossos Corredores Logísticos' : 'Our Logistical Corridors'}
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed">
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed"
+          >
             {language === 'PT'
               ? 'A partir do Porto de águas profundas de Moçambique, conectamos a sua mercadoria diretamente ao Hinterland de forma célere e segura, cobrindo os principais eixos de desenvolvimento da África Austral.'
               : 'From the deep-water ports of Mozambique, we connect your goods directly to the Hinterland quickly and securely, covering the primary SADC development axes.'}
-          </p>
+          </motion.p>
         </div>
 
         {/* Layout em 2 Colunas: Mapa Comercial + Lista de Distâncias */}

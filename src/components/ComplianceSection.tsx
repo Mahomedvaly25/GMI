@@ -72,17 +72,42 @@ export default function ComplianceSection({ language }: ComplianceSectionProps) 
         
         {/* Section Header */}
         <div className="mb-20 text-center lg:text-left">
-          <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
-            // {language === 'PT' ? 'SEGURANÇA E COMPLIANCE' : 'SAFETY & COMPLIANCE'}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase">
-            {language === 'PT' ? 'Compromisso com a Segurança e Padrões SADC' : 'Commitment to Safety & SADC Standards'}
-          </h2>
-          <p className="mt-4 text-slate-500 font-light text-sm md:text-base max-w-3xl leading-relaxed">
+          {/* SUBTÍTULO: Spring Scale */}
+          <motion.span 
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ type: "spring", stiffness: 120 }}
+            className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] inline-block mb-2"
+          >
+            {language === 'PT' ? '// SEGURANÇA E COMPLIANCE' : '// SAFETY & COMPLIANCE'}
+          </motion.span>
+
+          {/* TÍTULO: Kinetic Overshoot Spring Effect */}
+          <div className="overflow-hidden py-1">
+            <motion.h2 
+              initial={{ y: "100%", rotate: 1 }}
+              whileInView={{ y: 0, rotate: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ type: "spring", damping: 14, stiffness: 80, mass: 0.8 }}
+              className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase mt-2 mb-4 leading-tight"
+            >
+              {language === 'PT' ? 'Compromisso com a Segurança e Padrões SADC' : 'Commitment to Safety & SADC Standards'}
+            </motion.h2>
+          </div>
+
+          {/* DESCRIÇÃO: Fade-in suave */}
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-slate-500 font-light text-sm md:text-base max-w-3xl leading-relaxed mx-auto lg:mx-0"
+          >
             {language === 'PT'
               ? 'Mitigação rigorosa de riscos operativos e conformidade regulamentar estrita para garantir entregas pontuais, seguras e em total conformidade regional.'
               : 'Rigorous operational risk mitigation and strict regulatory compliance to guarantee on-time, highly secure, and compliant regional deliveries.'}
-          </p>
+          </motion.p>
         </div>
 
         {/* Staggered Grid Container */}
@@ -90,7 +115,7 @@ export default function ComplianceSection({ language }: ComplianceSectionProps) 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           className="grid grid-cols-1 lg:grid-cols-3 gap-8"
         >
           {COMPLIANCE_ITEMS.map((item) => {

@@ -113,7 +113,7 @@ export default function LocationMapSection({ language }: LocationMapSectionProps
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8 }}
           className="flex-1 relative w-full h-[320px] lg:h-full overflow-hidden"
         >
