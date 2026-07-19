@@ -141,7 +141,7 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
             <motion.span 
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5 }}
               className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2"
             >
@@ -152,7 +152,7 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
             <motion.h2 
               initial={{ opacity: 0, letterSpacing: "-0.05em", filter: "blur(8px)" }}
               whileInView={{ opacity: 1, letterSpacing: "0px", filter: "blur(0px)" }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
               className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase"
             >
@@ -163,7 +163,7 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-3 text-slate-500 font-light text-sm md:text-base max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
             >

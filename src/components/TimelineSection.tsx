@@ -93,7 +93,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
           <motion.span 
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2"
           >
             {language === 'PT' ? '// A NOSSA JORNADA' : '// OUR HISTORY & HERITAGE'}
@@ -106,7 +106,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
                 key={index}
                 initial={{ opacity: 0, filter: "blur(12px)", y: 20 }}
                 whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: false, margin: "-50px" }}
                 transition={{
                   duration: 0.5,
                   delay: index * 0.06,
@@ -123,7 +123,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed mx-auto lg:mx-0"
           >
@@ -175,7 +175,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
+                      viewport={{ once: false, margin: '-100px' }}
                       transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeOut' }}
                       className="inline-block"
                     >
@@ -194,7 +194,7 @@ export default function TimelineSection({ language }: TimelineSectionProps) {
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
+                      viewport={{ once: false, margin: '-100px' }}
                       transition={{ duration: 0.6, delay: idx * 0.15, ease: 'easeOut' }}
                       className="@container w-full max-w-[520px] bg-slate-50 border border-slate-100 rounded-[28px] p-6 md:p-8 hover:shadow-lg transition-all duration-300 group relative"
                     >

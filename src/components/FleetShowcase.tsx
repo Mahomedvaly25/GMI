@@ -206,7 +206,7 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
               <motion.span 
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.4 }}
                 className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-1"
               >
@@ -218,7 +218,7 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
                 variants={{ animate: { transition: { staggerChildren: 0.05 } } }}
                 initial="initial"
                 whileInView="animate"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, margin: "-100px" }}
                 className="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-brand-dark tracking-tight uppercase leading-none overflow-hidden flex flex-wrap gap-x-2 py-1"
               >
                 {(language === 'PT' ? 'Nossa Frota & Capacidade Operacional' : 'Our Fleet & Operational Capacity').split(" ").map((word, index) => (
@@ -239,7 +239,7 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: 0.35 }}
                 className="text-slate-500 font-light text-xs sm:text-sm lg:text-base max-w-3xl mt-2 leading-relaxed"
               >

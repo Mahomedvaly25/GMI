@@ -30,7 +30,7 @@ export default function SobreNos({ language }: SobreNosProps) {
             <motion.span 
               initial={{ x: -60, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ type: "spring", stiffness: 100, damping: 15 }}
               className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2"
             >
@@ -42,7 +42,7 @@ export default function SobreNos({ language }: SobreNosProps) {
               variants={containerVariants}
               initial="initial"
               whileInView="animate"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, margin: "-50px" }}
               className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-6 leading-tight"
             >
               {language === 'PT' ? (
@@ -70,7 +70,7 @@ export default function SobreNos({ language }: SobreNosProps) {
             <motion.p 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base text-slate-600 leading-relaxed mb-6 font-light"
             >
@@ -82,7 +82,7 @@ export default function SobreNos({ language }: SobreNosProps) {
             <motion.p 
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base text-slate-600 leading-relaxed font-light"
             >
@@ -95,7 +95,7 @@ export default function SobreNos({ language }: SobreNosProps) {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-200"
             >
@@ -130,7 +130,7 @@ export default function SobreNos({ language }: SobreNosProps) {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-lg h-[450px] md:h-[520px] group">

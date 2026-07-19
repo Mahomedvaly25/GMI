@@ -114,7 +114,7 @@ export default function RoutesSection({ language, onNavigateToContact }: RoutesS
           <motion.span 
             initial={{ opacity: 0, letterSpacing: "-0.2em" }}
             whileInView={{ opacity: 1, letterSpacing: "0.15em" }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-brand-yellow font-mono font-bold text-xs uppercase block mb-3"
           >
@@ -125,7 +125,7 @@ export default function RoutesSection({ language, onNavigateToContact }: RoutesS
           <motion.h2 
             initial={{ opacity: 0, letterSpacing: "-0.05em", filter: "blur(8px)" }}
             whileInView={{ opacity: 1, letterSpacing: "0px", filter: "blur(0px)" }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
             className="text-3xl md:text-5xl font-black text-brand-dark leading-tight uppercase"
           >
@@ -135,7 +135,7 @@ export default function RoutesSection({ language, onNavigateToContact }: RoutesS
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 text-base md:text-lg text-slate-500 max-w-3xl font-light leading-relaxed"
           >

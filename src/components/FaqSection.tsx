@@ -132,7 +132,7 @@ export default function FaqSection({ language }: FaqSectionProps) {
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2"
           >
@@ -144,7 +144,7 @@ export default function FaqSection({ language }: FaqSectionProps) {
             <motion.h2 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, ease: [0.215, 0.610, 0.355, 1.000] }}
               className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase"
             >
@@ -156,7 +156,7 @@ export default function FaqSection({ language }: FaqSectionProps) {
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 text-slate-500 font-light text-sm md:text-base max-w-xl mx-auto"
           >

@@ -79,7 +79,7 @@ export default function CommercialContact({ language }: CommercialContactProps) 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           
@@ -89,7 +89,7 @@ export default function CommercialContact({ language }: CommercialContactProps) 
             <motion.span 
               initial={{ scale: 0.95, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.4 }}
               className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] inline-block mb-2"
             >
@@ -101,7 +101,7 @@ export default function CommercialContact({ language }: CommercialContactProps) 
               <motion.h2 
                 initial={{ y: "100%", opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ type: "spring", damping: 14, stiffness: 80, mass: 0.8 }}
                 className="text-4xl font-display font-black text-brand-dark md:text-5xl tracking-tight uppercase"
               >
@@ -112,7 +112,7 @@ export default function CommercialContact({ language }: CommercialContactProps) 
             <motion.div 
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="w-16 h-1 bg-brand-yellow mt-4 rounded-full origin-left"
             />

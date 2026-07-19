@@ -55,7 +55,7 @@ const METRICS: MetricItem[] = [
 // Simple component for each counting stat block
 const CountingStat: React.FC<{ metric: MetricItem; language: Language }> = ({ metric, language }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: false, margin: '-50px' });
   const [count, setCount] = useState(0);
 
   useEffect(() => {

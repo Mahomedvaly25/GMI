@@ -107,7 +107,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
             variants={tagContainerVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             className="inline-flex overflow-hidden text-brand-yellow font-bold text-xs uppercase tracking-widest mb-3"
           >
             {(language === 'PT' ? '// RIGOR OPERACIONAL' : '// OPERATIONAL RIGOR').split("").map((char, index) => (
@@ -122,7 +122,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
             variants={titleContainerVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             className="text-3xl md:text-5xl font-black text-white mt-3 mb-4 max-w-3xl mx-auto leading-tight overflow-hidden flex flex-wrap justify-center gap-x-3"
           >
             {(language === 'PT' ? 'Nossos Serviços Industriais' : 'Our Industrial Services').split(" ").map((word, index) => (
@@ -136,7 +136,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-slate-200 max-w-2xl mx-auto text-base md:text-lg font-light mt-4 leading-relaxed"
           >
@@ -158,7 +158,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
                 key={srv.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: false, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:border-slate-200/60 overflow-hidden flex flex-col justify-between"
               >

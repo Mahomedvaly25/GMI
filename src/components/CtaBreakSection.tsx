@@ -43,7 +43,7 @@ export default function CtaBreakSection({ language }: CtaBreakSectionProps) {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6"
         >
@@ -57,7 +57,7 @@ export default function CtaBreakSection({ language }: CtaBreakSectionProps) {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white uppercase tracking-tight leading-tight max-w-4xl mx-auto"
         >
@@ -70,7 +70,7 @@ export default function CtaBreakSection({ language }: CtaBreakSectionProps) {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-4 text-xs sm:text-sm md:text-base text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
         >
@@ -83,7 +83,7 @@ export default function CtaBreakSection({ language }: CtaBreakSectionProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
