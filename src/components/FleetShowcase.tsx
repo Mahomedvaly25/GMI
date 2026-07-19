@@ -28,19 +28,19 @@ const FLEET_ITEMS: FleetItem[] = [
     id: 'fleet-1',
     titlePT: 'Scania R480 & Volvo FH16 Super Interlink',
     titleEN: 'Scania R480 & Volvo FH16 Super Interlink',
-    typePT: 'Basculantes & Carga Geral (Tautliner)',
-    typeEN: 'Side Tippers & Flatbed Tautliners',
+    typePT: 'Plataformas Abertas & Carga Geral',
+    typeEN: 'Flatbed Platforms & General Cargo',
     descPT: 'Carretas interlink de última geração optimizadas para transporte de graneis minerais e carga geral ensacada ao longo dos corredores comerciais de Beira e Maputo.',
     descEN: 'Next-generation interlink trailers optimized for bulk mineral transport and general bagged cargo across the Beira and Maputo commercial corridors.',
-    imgUrl: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800',
+    imgUrl: '/assets/flatbed-carga-geral.jpg',
     specsPT: [
       'Configuração Interlink de alta articulação',
-      'Lonas reforçadas com cabos de aço anti-corte',
+      'Sistemas de amarração, peação e fixação de carga de alta segurança',
       'Suspensão pneumática auto-ajustável para estradas SADC'
     ],
     specsEN: [
       'High-articulation Interlink layout',
-      'Anti-slash steel cable reinforced curtains',
+      'High-security cargo lashing, strapping, and securing systems',
       'Auto-adjusting air suspension for SADC road terrains'
     ],
     capacityPT: 'Até 36 Toneladas Líquidas',
@@ -55,7 +55,7 @@ const FLEET_ITEMS: FleetItem[] = [
     typeEN: 'Liquid & Hazardous Goods Transport',
     descPT: 'Cisternas em aço inoxidável AISI 316 e alumínio, equipadas com sistemas de selagem eletrónica contra contaminação e válvulas de segurança de alta precisão.',
     descEN: 'Premium AISI 316 stainless steel and aluminum liquid tankers equipped with anti-contamination electronic sealing and high-precision safety valves.',
-    imgUrl: 'https://images.unsplash.com/photo-1516576111851-a53d746ddc70?auto=format&fit=crop&q=80&w=800',
+    imgUrl: '/assets/combustivel.jpg',
     specsPT: [
       'Certificação SADC de segurança de perigosos (Hazmat)',
       'Sistemas integrados de purga e recuperação de vapores',
@@ -78,7 +78,7 @@ const FLEET_ITEMS: FleetItem[] = [
     typeEN: 'Oversize & Heavy Duty Industrial Machinery',
     descPT: 'Atrelados de prancha rebaixada projetados para cargas sobredimensionadas, como equipamentos de mineração pesada, pás eólicas e transformadores elétricos regionais.',
     descEN: 'Heavy duty lowbed platform trailers engineered for oversized cargo, including heavy mining machinery, wind turbine components, and regional transformers.',
-    imgUrl: 'https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=800',
+    imgUrl: '/assets/lowbed-cargas-anormais.jpg',
     specsPT: [
       'Pranchas extensíveis com rampas hidráulicas',
       'Múltiplos eixos direcionais dirigidos por comando sem fios',
@@ -101,7 +101,7 @@ const FLEET_ITEMS: FleetItem[] = [
     typeEN: 'Express Intermodal Logistics',
     descPT: 'Porta-contentores esqueleto planos ideais para conexão direta navio-estrada a partir dos portos de Beira, Maputo e Nacala com fixação Twistlock reforçada de tripla segurança.',
     descEN: 'Flat skeleton container trailers optimized for direct vessel-to-road transshipment from Mozambique ports with reinforced triple-safety Twistlocks.',
-    imgUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+    imgUrl: '/assets/porta-contentores-sadc.jpg',
     specsPT: [
       'Chassis ligeiros de liga de aço de alta resistência',
       'Pinos Twistlock ajustáveis para contentores de 20 e 40 pés',
@@ -138,7 +138,11 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
 
   // Slide x axis as the user scrolls vertically - translate offset adjusts dynamically
   const xTranslation = isMobile ? '-72%' : '-60%';
-  const x = useTransform(scrollYProgress, [0.1, 0.9], ['0%', xTranslation]);
+  const x = useTransform(
+    scrollYProgress,
+    isMobile ? [0.02, 0.98] : [0.1, 0.9],
+    ['0%', xTranslation]
+  );
 
   // Dynamic Marquee phrases based on selected language
   const marqueeItems = language === 'PT'
@@ -193,7 +197,7 @@ export default function FleetShowcase({ language }: FleetShowcaseProps) {
 
       {/* 2. MAIN STORYTELLING BLOCK WITH VERTICAL-TO-HORIZONTAL SCROLL EFFECT (Universal Desktop & Mobile) */}
       {/* This element sets up the scroll-locking height container */}
-      <div ref={containerRef} className="relative h-[135vh] lg:h-[240vh] bg-white">
+      <div ref={containerRef} className="relative h-[180vh] lg:h-[240vh] bg-white">
         
         {/* Sticky inner viewport frames our layout perfectly */}
         <div className="sticky top-0 h-[75vh] md:h-screen overflow-hidden flex flex-col justify-start lg:justify-between py-6 lg:py-16 gap-3 lg:gap-0">

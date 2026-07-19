@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
-import { Truck, ShieldCheck, ArrowRight, Eye, Layers } from 'lucide-react';
+import { Truck, ShieldCheck, ArrowRight, Eye, Layers, X } from 'lucide-react';
 
 interface CargoShowcaseProps {
   language: Language;
@@ -114,6 +114,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
 
 export default function CargoShowcase({ language }: CargoShowcaseProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryType>('all');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const filteredItems = activeFilter === 'all' 
     ? SHOWCASE_ITEMS 
@@ -226,7 +227,8 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
-                  className="group relative h-[360px] rounded-3xl overflow-hidden bg-slate-100 border border-slate-100 shadow-xs hover:shadow-lg transition-all duration-300"
+                  className="group relative h-[360px] rounded-3xl overflow-hidden bg-slate-100 border border-slate-100 shadow-xs hover:shadow-lg transition-all duration-300 cursor-zoom-in"
+                  onClick={() => setSelectedImage(item.imageSrc)}
                 >
                   {/* Photo with hover zoom */}
                   <motion.img
@@ -289,6 +291,43 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
         </div>
 
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center cursor-zoom-out"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 text-white hover:text-brand-yellow transition-colors cursor-pointer p-2 rounded-full bg-white/10 hover:bg-white/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Expanded Image */}
+            <motion.img
+              src={selectedImage}
+              alt={language === 'PT' ? 'Visualização da Frota' : 'Fleet Preview'}
+              className="max-w-[90vw] max-h-[85vh] rounded-2xl object-contain shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 }
