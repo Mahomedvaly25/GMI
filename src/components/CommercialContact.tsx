@@ -85,13 +85,37 @@ export default function CommercialContact({ language }: CommercialContactProps) 
           
           {/* Section Heading */}
           <div className="mb-16">
-            <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
-              // {language === 'PT' ? 'FALE CONNOSCO' : 'GET IN TOUCH'}
-            </span>
-            <h2 className="text-4xl font-display font-black text-brand-dark md:text-5xl tracking-tight uppercase">
-              {language === 'PT' ? 'Contacto Comercial' : 'Commercial Contact'}
-            </h2>
-            <div className="w-16 h-1 bg-brand-yellow mt-4 rounded-full" />
+            {/* SUBTÍTULO: Escala progressiva */}
+            <motion.span 
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] inline-block mb-2"
+            >
+              {language === 'PT' ? '// FALE CONNOSCO' : '// GET IN TOUCH'}
+            </motion.span>
+
+            {/* TÍTULO PRINCIPAL: Overshoot Spring */}
+            <div className="overflow-hidden py-1">
+              <motion.h2 
+                initial={{ y: "100%", opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", damping: 14, stiffness: 80, mass: 0.8 }}
+                className="text-4xl font-display font-black text-brand-dark md:text-5xl tracking-tight uppercase"
+              >
+                {language === 'PT' ? 'Contacto Comercial' : 'Commercial Contact'}
+              </motion.h2>
+            </div>
+            
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="w-16 h-1 bg-brand-yellow mt-4 rounded-full origin-left"
+            />
           </div>
 
           {/* Grid Layout: 2 Columns (1/3 Institutional Info, 2/3 Form) */}
