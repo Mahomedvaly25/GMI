@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import RoutesSection from './components/RoutesSection';
@@ -20,9 +21,18 @@ import { TRANSLATIONS, FLEETS, STATS } from './data';
 import { Truck, Navigation, Globe, CheckCircle2, Shield, AlertCircle } from 'lucide-react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState<Language>('PT');
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const dict = TRANSLATIONS[language];
 
@@ -43,7 +53,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-brand-dark font-sans flex flex-col justify-between selection:bg-brand-yellow selection:text-brand-dark antialiased">
+    <>
+      {/* Preloader Splash Screen */}
+      <AnimatePresence>
+        {isLoading && <Preloader />}
+      </AnimatePresence>
+
+      <div className="min-h-screen bg-[#F8FAFC] text-brand-dark font-sans flex flex-col justify-between selection:bg-brand-yellow selection:text-brand-dark antialiased">
       
       {/* Dynamic Header Toast for Interactive Quotes */}
       <AnimatePresence>
@@ -140,5 +156,6 @@ export default function App() {
       <Footer language={language} />
 
     </div>
+    </>
   );
 }

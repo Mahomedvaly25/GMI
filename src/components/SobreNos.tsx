@@ -9,138 +9,92 @@ interface SobreNosProps {
 }
 
 export default function SobreNos({ language }: SobreNosProps) {
-  const lineVariants = {
-    initial: { y: "120%", opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }
-  };
-
-  const containerVariants = {
-    animate: { transition: { staggerChildren: 0.08 } }
-  };
-
   return (
-    <section id="sobre" className="relative w-full py-24 my-12 bg-slate-50 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="sobre" className="relative w-full py-16 md:py-24 bg-slate-50 border-b border-slate-100 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* Coluna da Esquerda (Narrativa Institucional + Contadores) */}
-          <div className="flex flex-col justify-center">
-            
-            {/* SUBTÍTULO: Slide da Esquerda com Elasticidade */}
-            <motion.span 
-              initial={{ x: -60, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: false }}
-              transition={{ type: "spring", stiffness: 100, damping: 15 }}
-              className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2"
-            >
-              {language === 'PT' ? '// A NOSSA IDENTIDADE OPERACIONAL' : '// OUR OPERATIONAL IDENTITY'}
-            </motion.span>
-            
-            {/* TÍTULO: Kinetic Line Mask Reveal */}
-            <motion.h2 
-              variants={containerVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: false, margin: "-50px" }}
-              className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-6 leading-tight"
-            >
-              {language === 'PT' ? (
-                <>
-                  <div className="overflow-hidden block">
-                    <motion.span variants={lineVariants} className="inline-block">Solidez Avançada com Foco</motion.span>
-                  </div>
-                  <div className="overflow-hidden block">
-                    <motion.span variants={lineVariants} className="inline-block text-amber-500">Humano e Rigor Técnico</motion.span>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="overflow-hidden block">
-                    <motion.span variants={lineVariants} className="inline-block">Advanced Strength with</motion.span>
-                  </div>
-                  <div className="overflow-hidden block">
-                    <motion.span variants={lineVariants} className="inline-block text-amber-500">Human Focus & Rigor</motion.span>
-                  </div>
-                </>
-              )}
-            </motion.h2>
-            
-            {/* Parágrafos de Cópia (Com animação suave acoplada) */}
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base text-slate-600 leading-relaxed mb-6 font-light"
-            >
-              {language === 'PT'
-                ? 'Na MGI, combinamos quatro décadas de resiliência e conhecimento de mercado com infraestrutura pesada de última geração para viabilizar soluções de transporte e terraplanagem de alta complexidade em toda a África Austral.'
-                : 'At MGI, we combine four decades of resilience and market knowledge with state-of-the-art heavy infrastructure to enable highly complex transport and earthmoving solutions throughout Southern Africa.'}
-            </motion.p>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base text-slate-600 leading-relaxed font-light"
-            >
-              {language === 'PT'
-                ? 'Nossa verdadeira força reside na sinergia entre motoristas altamente qualificados, engenharia logística de precisão e um compromisso inabalável com as normas regionais. Mais do que movimentar cargas, conectamos corredores comerciais com segurança e pontualidade.'
-                : 'Our true strength lies in the synergy between highly qualified drivers, precision logistics engineering, and an unwavering commitment to regional standards. More than moving cargo, we connect commercial corridors with safety and timeliness.'}
-            </motion.p>
+          {/* Coluna da Esquerda (Conteúdo Institucional) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col justify-center"
+          >
+            {/* Pré-título pequeno em dourado */}
+            <span className="text-brand-yellow font-mono font-bold text-xs uppercase tracking-[3px] block mb-2">
+              {language === 'PT' ? '// SOBRE NÓS' : '// ABOUT US'}
+            </span>
 
-            {/* SUB-GRID DE MÉTRICAS */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-200"
-            >
-              {/* Bloco 1 */}
+            {/* Título Principal H2 */}
+            <h2 className="text-3xl md:text-4xl font-display font-black text-brand-dark tracking-tight uppercase leading-tight mb-6">
+              {language === 'PT' 
+                ? 'Líderes em Soluções Logísticas Integradas na Região SADC' 
+                : 'Leaders in Integrated Logistics Solutions Across the SADC Region'}
+            </h2>
+
+            {/* Parágrafos de texto bem estruturados */}
+            <div className="space-y-4 text-slate-600 font-light text-base md:text-lg leading-relaxed">
+              <p>
+                {language === 'PT'
+                  ? 'Com mais de 40 anos de sólida atuação no mercado da África Austral, a MGI Lda. consolida-se como referência de excelência operacional no transporte de cargas gerais, combustíveis, líquidos perigosos e equipamentos industriais sobredimensionados.'
+                  : 'With over 40 years of solid operation in the Southern African market, MGI Lda. stands out as an operational benchmark in the transport of general cargo, fuels, hazardous liquids, and oversized industrial equipment.'}
+              </p>
+
+              <p>
+                {language === 'PT'
+                  ? 'A partir dos portos estratégicos de Moçambique — Maputo, Beira e Nacala —, garantimos ligações intermodais seguras e eficientes ao longo dos principais corredores de trânsito regional, com uma frota pesada 100% monitorizada por telemetria via satélite 24/7.'
+                  : 'Operating from Mozambique’s strategic ports — Maputo, Beira, and Nacala —, we ensure secure and efficient intermodal connections along key regional transit corridors, backed by a heavy fleet 24/7 tracked via satellite telemetry.'}
+              </p>
+
+              <p>
+                {language === 'PT'
+                  ? 'O nosso compromisso inabalável assenta no rigor técnico, no cumprimento rigoroso das normas regulamentares SADC (Hazmat) e no respeito absoluto pelos prazos e pela integridade das mercadorias de cada cliente.'
+                  : 'Our unwavering commitment is built on technical rigor, strict compliance with SADC regulatory standards (Hazmat), and absolute respect for delivery timelines and cargo integrity.'}
+              </p>
+            </div>
+
+            {/* Indicadores / Métricas Rápidas */}
+            <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-200/80">
               <div>
-                <div className="text-3xl font-black text-slate-900">40+</div>
-                <div className="text-xs text-slate-500 mt-1">
-                  {language === 'PT' ? 'Anos de História' : 'Years of History'}
+                <div className="text-2xl md:text-3xl font-display font-black text-brand-dark">40+</div>
+                <div className="text-xs font-mono text-slate-500 mt-1 uppercase tracking-wider">
+                  {language === 'PT' ? 'Anos de História' : 'Years Experience'}
                 </div>
               </div>
 
-              {/* Bloco 2 */}
               <div>
-                <div className="text-3xl font-black text-slate-900">140+</div>
-                <div className="text-xs text-slate-500 mt-1">
+                <div className="text-2xl md:text-3xl font-display font-black text-brand-dark">140+</div>
+                <div className="text-xs font-mono text-slate-500 mt-1 uppercase tracking-wider">
                   {language === 'PT' ? 'Unidades de Frota' : 'Fleet Units'}
                 </div>
               </div>
 
-              {/* Bloco 3 */}
               <div>
-                <div className="text-3xl font-black text-slate-900">100%</div>
-                <div className="text-xs text-slate-500 mt-1">
-                  {language === 'PT' ? 'Satelital 24/7' : '24/7 Satellite Tracked'}
+                <div className="text-2xl md:text-3xl font-display font-black text-brand-dark">100%</div>
+                <div className="text-xs font-mono text-slate-500 mt-1 uppercase tracking-wider">
+                  {language === 'PT' ? 'Rastreio Satelital' : 'Satellite Tracking'}
                 </div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-          </div>
-
-          {/* Coluna da Direita (Moldura da Nova Imagem) */}
+          {/* Coluna da Direita (Fotografia Operacional Original) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-lg h-[450px] md:h-[520px] group">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl h-[450px] md:h-[520px] group border border-slate-100">
               <img
                 src="/assets/sobre-nos.jpg"
-                alt="Equipe e Frota MGI"
+                alt="MGI Lda. - Equipa e Frota Operacional"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               {/* Subtle visual gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
 
