@@ -23,15 +23,70 @@ interface ShowcaseItem {
 
 const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
-    id: 'item-1',
+    id: 'gallery-tonly-dumper',
     category: 'abnormal',
-    titlePT: 'Transporte de Escavadora Mineira',
-    titleEN: 'Mining Excavator Haulage',
-    subtitlePT: 'Operação Lowbed — Rota Beira para Tete',
-    subtitleEN: 'Lowbed Operation — Beira to Tete Route',
-    imageSrc: 'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&q=80&w=800',
+    titlePT: 'Transporte de Dumper Mineiro Tonly',
+    titleEN: 'Tonly Mining Dumper Transport',
+    subtitlePT: 'Operação Lowbed – Corredor de Tete',
+    subtitleEN: 'Lowbed Operation – Tete Corridor',
+    imageSrc: '/assets/galeria-tonly-lowbed.jpg',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-escort-convoy',
+    category: 'abnormal',
+    titlePT: 'Logística Integrada e Escolta Certificada',
+    titleEN: 'Integrated Logistics & Certified Escort',
+    subtitlePT: 'Comboio de Cargas Especiais – Moçambique',
+    subtitleEN: 'Special Cargo Convoy – Mozambique',
+    imageSrc: '/assets/galeria-escolta-mgi.jpg',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-fuel-tanker',
+    category: 'fuels',
+    titlePT: 'Distribuição de Produtos Petrolíferos',
+    titleEN: 'Petroleum Products Distribution',
+    subtitlePT: 'Logística Especializada Hazmat – Rotas Regionais',
+    subtitleEN: 'Hazmat Specialized Logistics – Regional Routes',
+    imageSrc: '/assets/galeria-cisterna-combustivel.jpg',
+    badgePT: 'Combustíveis',
+    badgeEN: 'Fuels & Tankers'
+  },
+  {
+    id: 'gallery-mgi-faw-sany-fleet',
+    category: 'rent',
+    titlePT: 'Mobilização de Equipamento Pesado Intermodal',
+    titleEN: 'Heavy Intermodal Equipment Mobilization',
+    subtitlePT: 'Suporte Logístico a Projetos de Infraestrutura e Mineração',
+    subtitleEN: 'Logistics Support for Infrastructure & Mining Projects',
+    imageSrc: '/assets/galeria-frota-faw-sany.jpg',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'gallery-mgi-general-cargo',
+    category: 'general',
+    titlePT: 'Transporte Seguro de Carga Geral Convencional',
+    titleEN: 'Secure Conventional General Cargo Transport',
+    subtitlePT: 'Logística de Distribuição – Corredores Nacionais',
+    subtitleEN: 'Distribution Logistics – National Corridors',
+    imageSrc: '/assets/galeria-carga-geral-lona.jpg',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
+  },
+  {
+    id: 'gallery-mgi-general-cargo-faw',
+    category: 'general',
+    titlePT: 'Logística de Carga Paletizada e Industrial',
+    titleEN: 'Palletized & Industrial Cargo Logistics',
+    subtitlePT: 'Transporte de Equipamentos e Insumos – Distribuição SADC',
+    subtitleEN: 'Equipment & Supplies Transport – SADC Distribution',
+    imageSrc: '/assets/galeria-carga-geral-faw.jpg',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
   },
   {
     id: 'item-2',
@@ -43,28 +98,6 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     imageSrc: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800',
     badgePT: 'Combustíveis',
     badgeEN: 'Fuels & Tankers'
-  },
-  {
-    id: 'item-3',
-    category: 'general',
-    titlePT: 'Logística de Contentores SADC',
-    titleEN: 'SADC Container Logistics',
-    subtitlePT: 'Porta-Contentores — Rota Harare (Zimbabwe)',
-    subtitleEN: 'Container Carrier — Harare Route (Zimbabwe)',
-    imageSrc: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Carga Geral',
-    badgeEN: 'General Cargo'
-  },
-  {
-    id: 'item-4',
-    category: 'abnormal',
-    titlePT: 'Componentes Industriais de Grande Porte',
-    titleEN: 'Oversized Industrial Components',
-    subtitlePT: 'Escolta Dedicada — Rota de Trânsito Zâmbia',
-    subtitleEN: 'Dedicated Escort — Zambia Transit Route',
-    imageSrc: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Cargas Anormais',
-    badgeEN: 'Abnormal Loads'
   },
   {
     id: 'item-7',
@@ -88,28 +121,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     badgePT: 'Aluguer de Máquinas',
     badgeEN: 'Equipment Rental'
   },
-  {
-    id: 'item-5',
-    category: 'general',
-    titlePT: 'Transporte de Cargas Agrícolas',
-    titleEN: 'Agricultural Cargo Transport',
-    subtitlePT: 'Basculantes Interlink — Escala Regional SADC',
-    subtitleEN: 'Side Tipper Interlinks — Regional SADC Scale',
-    imageSrc: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Carga Geral',
-    badgeEN: 'General Cargo'
-  },
-  {
-    id: 'item-6',
-    category: 'fuels',
-    titlePT: 'Abastecimento a Terminais Remotos',
-    titleEN: 'Remote Terminal Fuel Supply',
-    subtitlePT: 'Logística Especializada — Rotas Inter-estatais',
-    subtitleEN: 'Specialized Fuel Logistics — Inter-state Routes',
-    imageSrc: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Combustíveis',
-    badgeEN: 'Fuels & Tankers'
-  }
+
 ];
 
 export default function CargoShowcase({ language }: CargoShowcaseProps) {
