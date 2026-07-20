@@ -132,6 +132,13 @@ export default function CommercialContact({ language }: CommercialContactProps) 
               </div>
 
               <div>
+                {/* Logo Oficial Completo */}
+                <img
+                  src="/assets/logo-completo-mgi.png"
+                  alt="MGI Lda. - Solicitação Oficial de Cotação"
+                  className="w-full max-w-[260px] md:max-w-[300px] h-auto mx-auto lg:mx-0 mb-8 object-contain drop-shadow-sm"
+                />
+
                 <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase bg-white/80 border border-slate-200/50 px-3 py-1 rounded-full">
                   {language === 'PT' ? 'INFORMAÇÃO OFICIAL' : 'OFFICIAL DETAILS'}
                 </span>

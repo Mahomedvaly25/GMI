@@ -115,10 +115,13 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
 export default function CargoShowcase({ language }: CargoShowcaseProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryType>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filteredItems = activeFilter === 'all' 
     ? SHOWCASE_ITEMS 
     : SHOWCASE_ITEMS.filter(item => item.category === activeFilter);
+
+  const visibleItems = isExpanded ? filteredItems : filteredItems.slice(0, 6);
 
   const filters = [
     { type: 'all' as CategoryType, pt: 'Todos', en: 'All Cargoes' },
@@ -195,7 +198,10 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
             return (
               <button
                 key={filter.type}
-                onClick={() => setActiveFilter(filter.type)}
+                onClick={() => {
+                  setActiveFilter(filter.type);
+                  setIsExpanded(false);
+                }}
                 className={`px-5 py-2.5 text-xs font-mono font-bold tracking-wider rounded-xl transition-all duration-300 cursor-pointer ${
                   isSelected 
                     ? 'bg-slate-900 text-white shadow-md shadow-slate-900/10' 
@@ -214,7 +220,7 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => {
+            {visibleItems.map((item) => {
               const title = language === 'PT' ? item.titlePT : item.titleEN;
               const subtitle = language === 'PT' ? item.subtitlePT : item.subtitleEN;
               const badge = language === 'PT' ? item.badgePT : item.badgeEN;
@@ -273,6 +279,24 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {filteredItems.length > 6 && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="flex justify-center mt-10"
+          >
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-8 py-3 text-xs font-mono font-bold tracking-widest text-slate-800 hover:text-white bg-white hover:bg-slate-900 border border-slate-200 hover:border-slate-900 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
+            >
+              {isExpanded 
+                ? (language === 'PT' ? 'VER MENOS' : 'SEE LESS')
+                : (language === 'PT' ? 'VER MAIS FOTOS' : 'SEE MORE PHOTOS')}
+            </button>
+          </motion.div>
+        )}
 
         {/* Footer Link / Prompt */}
         <div className="mt-16 text-center">

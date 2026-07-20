@@ -67,22 +67,12 @@ export default function Navbar({
         <div className="flex justify-between items-center h-20">
           
           {/* Logo Brand Title */}
-          <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-brand-dark overflow-hidden">
-              <span className="font-display font-black text-xl text-brand-yellow">M</span>
-              <span className="font-display font-black text-xs text-white absolute bottom-1 right-1.5">G</span>
-              {/* Highlight edge line */}
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-brand-yellow" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-black text-lg tracking-tight text-brand-dark">MGI</span>
-                <span className="text-[10px] font-mono font-bold bg-brand-yellow/15 text-brand-dark px-1.5 py-0.5 rounded-md">LDA</span>
-              </div>
-              <p className="text-[9px] font-mono font-semibold tracking-wider text-slate-400 uppercase">
-                Mozambique Group Investments
-              </p>
-            </div>
+          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img
+              src="/assets/logo-mgi.png"
+              alt="MGI Lda. - Mozambique Group Investments"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation Links */}

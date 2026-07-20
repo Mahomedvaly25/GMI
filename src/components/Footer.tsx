@@ -17,19 +17,11 @@ export default function Footer({ language }: FooterProps) {
           
           {/* Brand info */}
           <div className="md:col-span-4 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-brand-dark overflow-hidden">
-                <span className="font-display font-black text-base text-brand-yellow">M</span>
-                <span className="font-display font-black text-[9px] text-white absolute bottom-0.5 right-1">G</span>
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-yellow" />
-              </div>
-              <div>
-                <span className="font-display font-black text-base tracking-tight text-brand-dark">MGI Lda.</span>
-                <p className="text-[9px] font-mono font-bold tracking-wider text-slate-400 uppercase">
-                  Mozambique Group Investments
-                </p>
-              </div>
-            </div>
+            <img
+              src="/assets/logo-completo-mgi.png"
+              alt="MGI Lda. - Transportes e Logística"
+              className="w-full max-w-[220px] md:max-w-[250px] h-auto mb-6 object-contain"
+            />
             
             <p className="text-xs text-slate-500 leading-relaxed font-light">
               {language === 'PT'
