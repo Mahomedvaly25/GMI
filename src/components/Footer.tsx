@@ -1,5 +1,5 @@
 import { Language } from '../types';
-import { Mail, Phone, MapPin, ExternalLink, ShieldAlert } from 'lucide-react';
+import { Mail, Phone, MapPin, ShieldAlert } from 'lucide-react';
 
 interface FooterProps {
   language: Language;
@@ -12,31 +12,29 @@ export default function Footer({ language }: FooterProps) {
     <footer className="bg-white border-t border-slate-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Upper footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-slate-100">
+        {/* Upper footer grid - Alinhamento de topo perfeito */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-left pb-12 border-b border-slate-100">
           
-          {/* Brand info */}
-          <div className="md:col-span-4 space-y-4">
+          {/* COLUNA 1 (Logo + Conteúdo Agrupado) */}
+          <div className="flex flex-col items-start space-y-4">
             <img
-              src="/assets/logo-completo-mgi.png"
+              src="/assets/logo-completo-mgi.webp"
               alt="MGI Lda. - Transportes e Logística"
-              className="w-full max-w-[220px] md:max-w-[250px] h-auto mb-6 object-contain"
+              className="w-full max-w-[240px] h-auto object-contain"
             />
-            
-            <p className="text-xs text-slate-500 leading-relaxed font-light">
+            <p className="text-sm text-slate-600 max-w-sm leading-relaxed font-light">
               {language === 'PT'
                 ? 'Operador logístico e aduaneiro certificado em Moçambique, ligando frotas pesadas ao hinterland da SADC.'
                 : 'Certified logistics and customs transit operator in Mozambique, linking heavy-duty road transport to SADC hinterland.'}
             </p>
-
-            <div className="flex items-center gap-2 text-[11px] font-mono text-brand-yellow bg-amber-50 px-3 py-1.5 rounded-lg border border-brand-yellow/10 w-fit">
-              <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
+            <div className="inline-flex items-center space-x-2 bg-amber-50 text-amber-700 px-3 py-1.5 rounded-md text-xs font-medium border border-amber-200">
+              <ShieldAlert className="w-4 h-4 shrink-0 text-amber-600" />
               <span>SADC Authorized Transit Operator</span>
             </div>
           </div>
 
-          {/* Core Offices Contacts */}
-          <div className="md:col-span-5 space-y-4">
+          {/* COLUNA 2 (Sede Principal) */}
+          <div className="space-y-4">
             <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
               {language === 'PT' ? 'Sede Principal' : 'Head Office'}
             </h4>
@@ -51,8 +49,8 @@ export default function Footer({ language }: FooterProps) {
             </div>
           </div>
 
-          {/* Direct channels */}
-          <div className="md:col-span-3 space-y-4">
+          {/* COLUNA 3 (Canais Directos) */}
+          <div className="space-y-4">
             <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
               {language === 'PT' ? 'Canais Directos' : 'Direct Contacts'}
             </h4>

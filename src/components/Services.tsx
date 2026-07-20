@@ -87,7 +87,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
       <motion.div
         className="block md:hidden absolute inset-0 z-0 bg-no-repeat"
         style={{
-          backgroundImage: "url('/assets/GMi-mobile.jpg')",
+          backgroundImage: "url('/assets/GMi-mobile.webp')",
           backgroundSize: '100% auto',
           backgroundPosition: 'bottom center',
           y: yMobile,

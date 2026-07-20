@@ -32,7 +32,7 @@ const FLEET_ITEMS: FleetItem[] = [
     typeEN: 'Flatbed Platforms & General Cargo',
     descPT: 'Carretas interlink de última geração optimizadas para transporte de graneis minerais e carga geral ensacada ao longo dos corredores comerciais de Beira e Maputo.',
     descEN: 'Next-generation interlink trailers optimized for bulk mineral transport and general bagged cargo across the Beira and Maputo commercial corridors.',
-    imgUrl: '/assets/flatbed-carga-geral.jpg',
+    imgUrl: '/assets/flatbed-carga-geral.webp',
     specsPT: [
       'Configuração Interlink de alta articulação',
       'Sistemas de amarração, peação e fixação de carga de alta segurança',
@@ -101,7 +101,7 @@ const FLEET_ITEMS: FleetItem[] = [
     typeEN: 'Express Intermodal Logistics',
     descPT: 'Porta-contentores esqueleto planos ideais para conexão direta navio-estrada a partir dos portos de Beira, Maputo e Nacala com fixação Twistlock reforçada de tripla segurança.',
     descEN: 'Flat skeleton container trailers optimized for direct vessel-to-road transshipment from Mozambique ports with reinforced triple-safety Twistlocks.',
-    imgUrl: '/assets/porta-contentores-sadc.jpg',
+    imgUrl: '/assets/porta-contentores-sadc.webp',
     specsPT: [
       'Chassis ligeiros de liga de aço de alta resistência',
       'Pinos Twistlock ajustáveis para contentores de 20 e 40 pés',

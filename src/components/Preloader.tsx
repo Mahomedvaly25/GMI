@@ -10,7 +10,7 @@ export default function Preloader() {
     >
       {/* Logótipo Oficial Completo da MGI */}
       <motion.img
-        src="/assets/logo-completo-mgi.png"
+        src="/assets/logo-completo-mgi.webp"
         alt="MGI Lda. - Carregando..."
         className="w-full max-w-[280px] md:max-w-[320px] h-auto object-contain mb-6"
         initial={{ opacity: 0, scale: 0.95 }}

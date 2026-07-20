@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
 import { Truck, ShieldCheck, ArrowRight, Eye, Layers, X } from 'lucide-react';
@@ -23,49 +23,116 @@ interface ShowcaseItem {
 
 const SHOWCASE_ITEMS: ShowcaseItem[] = [
   {
-    id: 'item-1',
+    id: 'gallery-tonly-dumper',
     category: 'abnormal',
-    titlePT: 'Transporte de Escavadora Mineira',
-    titleEN: 'Mining Excavator Haulage',
-    subtitlePT: 'Operação Lowbed — Rota Beira para Tete',
-    subtitleEN: 'Lowbed Operation — Beira to Tete Route',
-    imageSrc: 'https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&q=80&w=800',
+    titlePT: 'Transporte de Dumper Mineiro Tonly',
+    titleEN: 'Tonly Mining Dumper Transport',
+    subtitlePT: 'Operação Lowbed – Corredor de Tete',
+    subtitleEN: 'Lowbed Operation – Tete Corridor',
+    imageSrc: '/assets/galeria-tonly-lowbed.webp',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
   },
   {
-    id: 'item-2',
+    id: 'gallery-mgi-escort-convoy',
+    category: 'abnormal',
+    titlePT: 'Logística Integrada e Escolta Certificada',
+    titleEN: 'Integrated Logistics & Certified Escort',
+    subtitlePT: 'Comboio de Cargas Especiais – Moçambique',
+    subtitleEN: 'Special Cargo Convoy – Mozambique',
+    imageSrc: '/assets/galeria-escolta-mgi.webp',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-faw-tonly-double',
+    category: 'abnormal',
+    titlePT: 'Transporte Multi-Unidade de Dumpers Minerais',
+    titleEN: 'Multi-Unit Mining Dumper Transport',
+    subtitlePT: 'Operação de Alta Complexidade – Corredores Logísticos',
+    subtitleEN: 'High-Complexity Operation – Logistics Corridors',
+    imageSrc: '/assets/galeria-faw-tonly-double.webp',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-highway-convoy',
+    category: 'abnormal',
+    titlePT: 'Escolta e Especificações de Comboios Logísticos',
+    titleEN: 'Escort & Logistics Convoy Specifications',
+    subtitlePT: 'Transporte Transfronteiriço de Grande Porte – Corredores Regionais',
+    subtitleEN: 'Large-Scale Cross-Border Transport – Regional Corridors',
+    imageSrc: '/assets/galeria-comboio-autoestrada.webp',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-fuel-tanker',
     category: 'fuels',
-    titlePT: 'Distribuição de Granéis Líquidos',
-    titleEN: 'Liquid Bulk Distribution',
-    subtitlePT: 'Cisternas Inox — Corredor da Beira',
-    subtitleEN: 'Stainless Steel Tankers — Beira Corridor',
-    imageSrc: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800',
+    titlePT: 'Distribuição de Produtos Petrolíferos',
+    titleEN: 'Petroleum Products Distribution',
+    subtitlePT: 'Logística Especializada Hazmat – Rotas Regionais',
+    subtitleEN: 'Hazmat Specialized Logistics – Regional Routes',
+    imageSrc: '/assets/galeria-cisterna-combustivel.webp',
     badgePT: 'Combustíveis',
     badgeEN: 'Fuels & Tankers'
   },
   {
-    id: 'item-3',
+    id: 'gallery-mgi-faw-sany-fleet',
+    category: 'rent',
+    titlePT: 'Mobilização de Equipamento Pesado Intermodal',
+    titleEN: 'Heavy Intermodal Equipment Mobilization',
+    subtitlePT: 'Suporte Logístico a Projetos de Infraestrutura e Mineração',
+    subtitleEN: 'Logistics Support for Infrastructure & Mining Projects',
+    imageSrc: '/assets/galeria-frota-faw-sany.webp',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'gallery-mgi-foton-night',
+    category: 'rent',
+    titlePT: 'Disponibilidade Operacional 24/7',
+    titleEN: '24/7 Operational Availability',
+    subtitlePT: 'Frota Pesada de Alta Performance para Projetos Estratégicos',
+    subtitleEN: 'Heavy Duty High-Performance Fleet for Strategic Projects',
+    imageSrc: '/assets/galeria-foton-noturno.webp',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'gallery-mgi-general-cargo',
     category: 'general',
-    titlePT: 'Logística de Contentores SADC',
-    titleEN: 'SADC Container Logistics',
-    subtitlePT: 'Porta-Contentores — Rota Harare (Zimbabwe)',
-    subtitleEN: 'Container Carrier — Harare Route (Zimbabwe)',
-    imageSrc: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+    titlePT: 'Transporte Seguro de Carga Geral Convencional',
+    titleEN: 'Secure Conventional General Cargo Transport',
+    subtitlePT: 'Logística de Distribuição – Corredores Nacionais',
+    subtitleEN: 'Distribution Logistics – National Corridors',
+    imageSrc: '/assets/galeria-carga-geral-lona.webp',
     badgePT: 'Carga Geral',
     badgeEN: 'General Cargo'
   },
   {
-    id: 'item-4',
-    category: 'abnormal',
-    titlePT: 'Componentes Industriais de Grande Porte',
-    titleEN: 'Oversized Industrial Components',
-    subtitlePT: 'Escolta Dedicada — Rota de Trânsito Zâmbia',
-    subtitleEN: 'Dedicated Escort — Zambia Transit Route',
-    imageSrc: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Cargas Anormais',
-    badgeEN: 'Abnormal Loads'
+    id: 'gallery-mgi-general-cargo-faw',
+    category: 'general',
+    titlePT: 'Logística de Carga Paletizada e Industrial',
+    titleEN: 'Palletized & Industrial Cargo Logistics',
+    subtitlePT: 'Transporte de Equipamentos e Insumos – Distribuição SADC',
+    subtitleEN: 'Equipment & Supplies Transport – SADC Distribution',
+    imageSrc: '/assets/galeria-carga-geral-faw.webp',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
   },
+  {
+    id: 'gallery-mgi-general-cargo-structures',
+    category: 'general',
+    titlePT: 'Transporte de Estruturas e Componentes Industriais',
+    titleEN: 'Industrial Structures & Components Transport',
+    subtitlePT: 'Logística de Suporte ao Setor Fabril e de Construção',
+    subtitleEN: 'Logistics Support for Manufacturing & Construction Sectors',
+    imageSrc: '/assets/galeria-carga-geral-estruturas.webp',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
+  },
+
   {
     id: 'item-7',
     category: 'rent',
@@ -88,38 +155,32 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     badgePT: 'Aluguer de Máquinas',
     badgeEN: 'Equipment Rental'
   },
-  {
-    id: 'item-5',
-    category: 'general',
-    titlePT: 'Transporte de Cargas Agrícolas',
-    titleEN: 'Agricultural Cargo Transport',
-    subtitlePT: 'Basculantes Interlink — Escala Regional SADC',
-    subtitleEN: 'Side Tipper Interlinks — Regional SADC Scale',
-    imageSrc: 'https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Carga Geral',
-    badgeEN: 'General Cargo'
-  },
-  {
-    id: 'item-6',
-    category: 'fuels',
-    titlePT: 'Abastecimento a Terminais Remotos',
-    titleEN: 'Remote Terminal Fuel Supply',
-    subtitlePT: 'Logística Especializada — Rotas Inter-estatais',
-    subtitleEN: 'Specialized Fuel Logistics — Inter-state Routes',
-    imageSrc: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Combustíveis',
-    badgeEN: 'Fuels & Tankers'
-  }
+
 ];
 
 export default function CargoShowcase({ language }: CargoShowcaseProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryType>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [displayItems, setDisplayItems] = useState<ShowcaseItem[]>([]);
+
+  useEffect(() => {
+    // Algoritmo Fisher-Yates para baralhar o array sem mutar o original
+    const shuffleArray = (array: ShowcaseItem[]) => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+
+    setDisplayItems(shuffleArray(SHOWCASE_ITEMS));
+  }, []);
 
   const filteredItems = activeFilter === 'all' 
-    ? SHOWCASE_ITEMS 
-    : SHOWCASE_ITEMS.filter(item => item.category === activeFilter);
+    ? displayItems 
+    : displayItems.filter(item => item.category === activeFilter);
 
   const visibleItems = isExpanded ? filteredItems : filteredItems.slice(0, 6);
 
