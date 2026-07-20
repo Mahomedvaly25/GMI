@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
 import { Truck, ShieldCheck, ArrowRight, Eye, Layers, X } from 'lucide-react';
@@ -45,6 +45,28 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     badgeEN: 'Abnormal Loads'
   },
   {
+    id: 'gallery-mgi-faw-tonly-double',
+    category: 'abnormal',
+    titlePT: 'Transporte Multi-Unidade de Dumpers Minerais',
+    titleEN: 'Multi-Unit Mining Dumper Transport',
+    subtitlePT: 'Operação de Alta Complexidade – Corredores Logísticos',
+    subtitleEN: 'High-Complexity Operation – Logistics Corridors',
+    imageSrc: '/assets/galeria-faw-tonly-double.jpg',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
+    id: 'gallery-mgi-highway-convoy',
+    category: 'abnormal',
+    titlePT: 'Escolta e Especificações de Comboios Logísticos',
+    titleEN: 'Escort & Logistics Convoy Specifications',
+    subtitlePT: 'Transporte Transfronteiriço de Grande Porte – Corredores Regionais',
+    subtitleEN: 'Large-Scale Cross-Border Transport – Regional Corridors',
+    imageSrc: '/assets/galeria-comboio-autoestrada.jpg',
+    badgePT: 'Cargas Anormais',
+    badgeEN: 'Abnormal Loads'
+  },
+  {
     id: 'gallery-mgi-fuel-tanker',
     category: 'fuels',
     titlePT: 'Distribuição de Produtos Petrolíferos',
@@ -63,6 +85,17 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     subtitlePT: 'Suporte Logístico a Projetos de Infraestrutura e Mineração',
     subtitleEN: 'Logistics Support for Infrastructure & Mining Projects',
     imageSrc: '/assets/galeria-frota-faw-sany.jpg',
+    badgePT: 'Aluguer de Máquinas',
+    badgeEN: 'Equipment Rental'
+  },
+  {
+    id: 'gallery-mgi-foton-night',
+    category: 'rent',
+    titlePT: 'Disponibilidade Operacional 24/7',
+    titleEN: '24/7 Operational Availability',
+    subtitlePT: 'Frota Pesada de Alta Performance para Projetos Estratégicos',
+    subtitleEN: 'Heavy Duty High-Performance Fleet for Strategic Projects',
+    imageSrc: '/assets/galeria-foton-noturno.jpg',
     badgePT: 'Aluguer de Máquinas',
     badgeEN: 'Equipment Rental'
   },
@@ -89,16 +122,17 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     badgeEN: 'General Cargo'
   },
   {
-    id: 'item-2',
-    category: 'fuels',
-    titlePT: 'Distribuição de Granéis Líquidos',
-    titleEN: 'Liquid Bulk Distribution',
-    subtitlePT: 'Cisternas Inox — Corredor da Beira',
-    subtitleEN: 'Stainless Steel Tankers — Beira Corridor',
-    imageSrc: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800',
-    badgePT: 'Combustíveis',
-    badgeEN: 'Fuels & Tankers'
+    id: 'gallery-mgi-general-cargo-structures',
+    category: 'general',
+    titlePT: 'Transporte de Estruturas e Componentes Industriais',
+    titleEN: 'Industrial Structures & Components Transport',
+    subtitlePT: 'Logística de Suporte ao Setor Fabril e de Construção',
+    subtitleEN: 'Logistics Support for Manufacturing & Construction Sectors',
+    imageSrc: '/assets/galeria-carga-geral-estruturas.jpg',
+    badgePT: 'Carga Geral',
+    badgeEN: 'General Cargo'
   },
+
   {
     id: 'item-7',
     category: 'rent',
@@ -128,10 +162,25 @@ export default function CargoShowcase({ language }: CargoShowcaseProps) {
   const [activeFilter, setActiveFilter] = useState<CategoryType>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [displayItems, setDisplayItems] = useState<ShowcaseItem[]>([]);
+
+  useEffect(() => {
+    // Algoritmo Fisher-Yates para baralhar o array sem mutar o original
+    const shuffleArray = (array: ShowcaseItem[]) => {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    };
+
+    setDisplayItems(shuffleArray(SHOWCASE_ITEMS));
+  }, []);
 
   const filteredItems = activeFilter === 'all' 
-    ? SHOWCASE_ITEMS 
-    : SHOWCASE_ITEMS.filter(item => item.category === activeFilter);
+    ? displayItems 
+    : displayItems.filter(item => item.category === activeFilter);
 
   const visibleItems = isExpanded ? filteredItems : filteredItems.slice(0, 6);
 
