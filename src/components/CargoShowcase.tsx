@@ -29,7 +29,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Tonly Mining Dumper Transport',
     subtitlePT: 'Operação Lowbed – Corredor de Tete',
     subtitleEN: 'Lowbed Operation – Tete Corridor',
-    imageSrc: '/assets/galeria-tonly-lowbed.jpg',
+    imageSrc: '/assets/galeria-tonly-lowbed.webp',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
   },
@@ -40,7 +40,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Integrated Logistics & Certified Escort',
     subtitlePT: 'Comboio de Cargas Especiais – Moçambique',
     subtitleEN: 'Special Cargo Convoy – Mozambique',
-    imageSrc: '/assets/galeria-escolta-mgi.jpg',
+    imageSrc: '/assets/galeria-escolta-mgi.webp',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
   },
@@ -51,7 +51,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Multi-Unit Mining Dumper Transport',
     subtitlePT: 'Operação de Alta Complexidade – Corredores Logísticos',
     subtitleEN: 'High-Complexity Operation – Logistics Corridors',
-    imageSrc: '/assets/galeria-faw-tonly-double.jpg',
+    imageSrc: '/assets/galeria-faw-tonly-double.webp',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
   },
@@ -62,7 +62,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Escort & Logistics Convoy Specifications',
     subtitlePT: 'Transporte Transfronteiriço de Grande Porte – Corredores Regionais',
     subtitleEN: 'Large-Scale Cross-Border Transport – Regional Corridors',
-    imageSrc: '/assets/galeria-comboio-autoestrada.jpg',
+    imageSrc: '/assets/galeria-comboio-autoestrada.webp',
     badgePT: 'Cargas Anormais',
     badgeEN: 'Abnormal Loads'
   },
@@ -73,7 +73,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Petroleum Products Distribution',
     subtitlePT: 'Logística Especializada Hazmat – Rotas Regionais',
     subtitleEN: 'Hazmat Specialized Logistics – Regional Routes',
-    imageSrc: '/assets/galeria-cisterna-combustivel.jpg',
+    imageSrc: '/assets/galeria-cisterna-combustivel.webp',
     badgePT: 'Combustíveis',
     badgeEN: 'Fuels & Tankers'
   },
@@ -84,7 +84,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Heavy Intermodal Equipment Mobilization',
     subtitlePT: 'Suporte Logístico a Projetos de Infraestrutura e Mineração',
     subtitleEN: 'Logistics Support for Infrastructure & Mining Projects',
-    imageSrc: '/assets/galeria-frota-faw-sany.jpg',
+    imageSrc: '/assets/galeria-frota-faw-sany.webp',
     badgePT: 'Aluguer de Máquinas',
     badgeEN: 'Equipment Rental'
   },
@@ -95,7 +95,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: '24/7 Operational Availability',
     subtitlePT: 'Frota Pesada de Alta Performance para Projetos Estratégicos',
     subtitleEN: 'Heavy Duty High-Performance Fleet for Strategic Projects',
-    imageSrc: '/assets/galeria-foton-noturno.jpg',
+    imageSrc: '/assets/galeria-foton-noturno.webp',
     badgePT: 'Aluguer de Máquinas',
     badgeEN: 'Equipment Rental'
   },
@@ -106,7 +106,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Secure Conventional General Cargo Transport',
     subtitlePT: 'Logística de Distribuição – Corredores Nacionais',
     subtitleEN: 'Distribution Logistics – National Corridors',
-    imageSrc: '/assets/galeria-carga-geral-lona.jpg',
+    imageSrc: '/assets/galeria-carga-geral-lona.webp',
     badgePT: 'Carga Geral',
     badgeEN: 'General Cargo'
   },
@@ -117,7 +117,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Palletized & Industrial Cargo Logistics',
     subtitlePT: 'Transporte de Equipamentos e Insumos – Distribuição SADC',
     subtitleEN: 'Equipment & Supplies Transport – SADC Distribution',
-    imageSrc: '/assets/galeria-carga-geral-faw.jpg',
+    imageSrc: '/assets/galeria-carga-geral-faw.webp',
     badgePT: 'Carga Geral',
     badgeEN: 'General Cargo'
   },
@@ -128,7 +128,7 @@ const SHOWCASE_ITEMS: ShowcaseItem[] = [
     titleEN: 'Industrial Structures & Components Transport',
     subtitlePT: 'Logística de Suporte ao Setor Fabril e de Construção',
     subtitleEN: 'Logistics Support for Manufacturing & Construction Sectors',
-    imageSrc: '/assets/galeria-carga-geral-estruturas.jpg',
+    imageSrc: '/assets/galeria-carga-geral-estruturas.webp',
     badgePT: 'Carga Geral',
     badgeEN: 'General Cargo'
   },
