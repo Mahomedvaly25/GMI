@@ -188,7 +188,7 @@ export default function Services({ language, onNavigateToCalculator }: ServicesP
                     {specs.map((spec, specIdx) => (
                       <div key={specIdx} className="flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow mt-2 shrink-0" />
-                        <span className="text-xs text-slate-600 font-mono leading-tight">{spec}</span>
+                        <span className="text-xs text-slate-600 font-sans leading-tight font-normal">{spec}</span>
                       </div>
                     ))}
                   </div>
