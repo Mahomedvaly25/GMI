@@ -194,101 +194,144 @@ export default function Hero({ language, onNavigateToCalculator, onNavigateToCor
 
           </div>
 
-          {/* RIGHT SIDE: HIGH-IMPACT PREMIUM GRAPHIC FRAME (Matches SaaS Split Layout Style exactly) */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
+          {/* RIGHT SIDE: HIGH-IMPACT PREMIUM GRAPHIC FRAME (Mobile-First Responsive Lowbed) */}
+          <div className="lg:col-span-5 relative flex items-center justify-center w-full px-2 sm:px-4 md:px-0">
             
             {/* SaaS Split Graphic container box */}
-            <div className="relative w-full max-w-[480px] aspect-[1.15] rounded-[40px] bg-slate-50 border border-slate-100/60 p-8 flex items-center justify-center overflow-hidden shadow-2xl shadow-slate-200/50">
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] aspect-[1.2] sm:aspect-[1.15] rounded-[28px] sm:rounded-[36px] md:rounded-[40px] bg-slate-50 border border-slate-100/60 p-4 sm:p-6 md:p-8 flex items-center justify-center overflow-hidden shadow-xl sm:shadow-2xl shadow-slate-200/50">
               
               {/* Decorative top-right lines */}
-              <div className="absolute top-8 right-8 w-[150px] h-[6px] bg-brand-yellow rounded-full z-10" />
-              <div className="absolute top-12 right-8 w-[90px] h-[6px] bg-brand-yellow/30 rounded-full z-10" />
+              <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-[100px] sm:w-[150px] h-[4px] sm:h-[6px] bg-brand-yellow rounded-full z-10" />
+              <div className="absolute top-9 right-6 sm:top-12 sm:right-8 w-[60px] sm:w-[90px] h-[4px] sm:h-[6px] bg-brand-yellow/30 rounded-full z-10" />
 
               {/* Huge 'MGI' background watermark text */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
-                <span className="font-display font-black text-[180px] text-white tracking-tighter drop-shadow-[0_10px_40px_rgba(0,0,0,0.02)] select-none">
+                <span className="font-display font-black text-[120px] sm:text-[150px] md:text-[180px] text-white tracking-tighter drop-shadow-[0_10px_40px_rgba(0,0,0,0.02)] select-none">
                   MGI
                 </span>
               </div>
 
-              {/* Vector High-Fidelity Truck Graphic */}
+              {/* Vector High-Fidelity Lowbed Heavy Transport Graphic com Vibração Suave de Rodovia */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
-                className="w-full relative z-10 mt-6"
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1, 
+                  y: [0, -2, 0, 1.5, 0] 
+                }}
+                transition={{
+                  y: {
+                    duration: 2.4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  },
+                  opacity: { duration: 0.5, delay: 0.5 },
+                  scale: { type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }
+                }}
+                className="w-full relative z-10 mt-1 sm:mt-2 scale-95 sm:scale-100 origin-center"
               >
-                <svg viewBox="0 0 400 300" className="w-full drop-shadow-[0_15px_30px_rgba(30,34,41,0.08)]">
-                  {/* Ground Shadow */}
-                  <ellipse cx="200" cy="245" rx="140" ry="12" fill="#1E2229" fillOpacity="0.12" />
+                <svg viewBox="0 0 480 270" className="w-full h-auto object-contain max-w-full drop-shadow-[0_15px_30px_rgba(30,34,41,0.08)]">
+                  {/* Soft Ground Shadows */}
+                  <ellipse cx="240" cy="245" rx="220" ry="10" fill="#1E2229" fillOpacity="0.08" />
+                  <ellipse cx="240" cy="242" rx="190" ry="5" fill="#1E2229" fillOpacity="0.12" />
 
-                  {/* Truck Cabin (Cab) */}
-                  <g id="truck-cab" className="transition-all duration-300">
-                    {/* Cabin back cover */}
-                    <path d="M280,110 L315,110 L315,225 L280,225 Z" fill="#1E2229" />
-                    {/* Main Cab body */}
-                    <path d="M315,120 L355,120 L375,150 L375,225 L315,225 Z" fill="#1E2229" />
-                    {/* Yellow Decals on Cab side */}
-                    <path d="M320,135 L350,135 L360,150 L320,150 Z" fill="#F59E0B" />
-                    <path d="M320,160 L368,160 L368,185 L320,185 Z" fill="#F59E0B" fillOpacity="0.8" />
-                    <path d="M330,195 L368,195 L368,205 L330,205 Z" fill="#FFFFFF" />
-                    
-                    {/* Cabin Window */}
-                    <path d="M325,128 L350,128 L360,145 L325,145 Z" fill="#0A192F" />
+                  {/* LOWBED TRAILER CHASSIS */}
+                  <g id="lowbed-trailer">
+                    {/* Gooseneck Connection (Pescoço de Ganso) */}
+                    <path d="M 330,205 L 362,205 L 368,188 L 392,188 L 392,215 L 330,215 Z" fill="#1E2229" />
+                    <path d="M 365,192 L 388,192 L 388,202 L 365,202 Z" fill="#F59E0B" />
 
-                    {/* Windshield */}
-                    <path d="M358,128 L368,128 L373,145 L362,145 Z" fill="#0A192F" fillOpacity="0.9" />
+                    {/* Lowbed Central Drop Deck (Prancha Rebaixada Central) */}
+                    <rect x="125" y="215" width="205" height="12" rx="3" fill="#334155" />
+                    <rect x="125" y="218" width="205" height="3" fill="#F59E0B" />
 
-                    {/* Front Grille & bumper */}
-                    <rect x="368" y="175" width="8" height="40" rx="3" fill="#0A192F" />
-                    <circle cx="372" cy="205" r="3" fill="#F59E0B" />
-                    
-                    {/* Mudguard */}
-                    <path d="M310,210 C310,200 350,200 350,210" fill="none" stroke="#1E2229" strokeWidth="6" />
+                    {/* Rear Multi-Axle Bogie Platform */}
+                    <rect x="45" y="205" width="85" height="22" rx="4" fill="#1E2229" />
+                    <rect x="45" y="208" width="85" height="3" fill="#F59E0B" />
+
+                    {/* Rear Safety Ramp Guides */}
+                    <path d="M 45,205 L 25,232 L 35,232 L 55,205 Z" fill="#475569" />
                   </g>
 
-                  {/* Cargo Container (Modern, High-Tech, Clean) */}
-                  <g id="truck-trailer">
-                    {/* Main box */}
-                    <rect x="90" y="80" width="190" height="145" rx="8" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="4" />
+                  {/* HEAVY MACHINERY PAYLOAD (Mining Dumper / Excavator Rig) */}
+                  <g id="heavy-dumper-payload">
+                    {/* Main Dumper Dump-Body (Caçamba Amarela em Angulo) */}
+                    <path d="M 135,138 L 290,118 L 315,175 L 135,175 Z" fill="#F59E0B" />
+                    <path d="M 142,143 L 285,125 L 295,155 L 150,160 Z" fill="#D97706" fillOpacity="0.35" />
+
+                    {/* Mining Operator Cabin */}
+                    <path d="M 290,128 L 322,128 L 322,175 L 290,175 Z" fill="#1E2229" />
+                    <rect x="296" y="134" width="20" height="18" rx="2" fill="#FFFFFF" fillOpacity="0.9" />
+
+                    {/* Dumper Heavy Base Chassis */}
+                    <rect x="155" y="175" width="165" height="40" rx="4" fill="#1E2229" />
                     
-                    {/* Yellow Stripes (Brand Visual) */}
-                    <rect x="90" y="130" width="190" height="15" fill="#F59E0B" />
-                    <rect x="110" y="150" width="150" height="6" fill="#1E2229" />
-                    
-                    {/* MGI Logo branding text on Trailer */}
-                    <text x="185" y="118" textAnchor="middle" className="font-display font-black text-xl fill-brand-dark tracking-wider">
-                      MGI LOGISTICS
-                    </text>
-                    <text x="185" y="180" textAnchor="middle" className="font-mono text-[9px] font-bold fill-slate-400 tracking-widest uppercase">
-                      • CORREDORES TRANSITO SADC •
+                    {/* Branding Tag on Machine Payload */}
+                    <rect x="180" y="152" width="95" height="13" rx="2" fill="#1E2229" />
+                    <text x="227" y="161" textAnchor="middle" className="font-mono text-[8px] font-bold fill-white tracking-widest uppercase">
+                      HEAVY CARGO SADC
                     </text>
 
-                    {/* Industrial lock mechanism */}
-                    <line x1="95" y1="85" x2="95" y2="220" stroke="#CBD5E1" strokeWidth="2" />
-                    <line x1="275" y1="85" x2="275" y2="220" stroke="#CBD5E1" strokeWidth="2" />
+                    {/* Giant Mining Wheels under Heavy Cargo */}
+                    <circle cx="185" cy="205" r="22" fill="#0F172A" stroke="#475569" strokeWidth="4" />
+                    <circle cx="185" cy="205" r="8" fill="#F59E0B" />
+                    <circle cx="285" cy="205" r="22" fill="#0F172A" stroke="#475569" strokeWidth="4" />
+                    <circle cx="285" cy="205" r="8" fill="#F59E0B" />
                   </g>
 
-                  {/* Chassis, wheels & components */}
-                  <g id="truck-wheels">
-                    <rect x="80" y="222" width="240" height="8" fill="#475569" />
-                    <circle cx="330" cy="235" r="15" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
-                    <circle cx="330" cy="235" r="6" fill="#94A3B8" />
+                  {/* HEAVY TRACTOR TRUCK (Cavalo Mecânico Moderno Frontal) */}
+                  <g id="tractor-cab">
+                    {/* Cabin Body */}
+                    <path d="M 370,122 L 420,122 L 452,156 L 452,225 L 370,225 Z" fill="#1E2229" />
+                    
+                    {/* Windows & Windshield */}
+                    <path d="M 380,130 L 415,130 L 426,150 L 380,150 Z" fill="#0A192F" />
+                    <path d="M 429,130 L 444,130 L 449,150 L 431,150 Z" fill="#0A192F" fillOpacity="0.9" />
 
-                    <circle cx="115" cy="235" r="15" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
-                    <circle cx="115" cy="235" r="6" fill="#94A3B8" />
+                    {/* Yellow & White Brand Decals */}
+                    <path d="M 375,158 L 447,158 L 447,171 L 375,171 Z" fill="#F59E0B" />
+                    <path d="M 375,176 L 432,176 L 432,182 L 375,182 Z" fill="#FFFFFF" fillOpacity="0.9" />
+                    <text x="408" y="167" textAnchor="middle" className="font-display font-black text-[9px] fill-brand-dark tracking-wider">
+                      MGI
+                    </text>
 
-                    <circle cx="150" cy="235" r="15" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
-                    <circle cx="150" cy="235" r="6" fill="#94A3B8" />
+                    {/* Front Bumper, Grille & Lights */}
+                    <rect x="450" y="178" width="6" height="42" rx="2" fill="#0A192F" />
+                    <circle cx="452" cy="204" r="3" fill="#F59E0B" />
+                    <rect x="450" y="211" width="5" height="8" rx="1.5" fill="#F59E0B" />
 
-                    <circle cx="250" cy="235" r="15" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
-                    <circle cx="250" cy="235" r="6" fill="#94A3B8" />
+                    {/* Mudguard Arc */}
+                    <path d="M 358,212 C 358,198 402,198 402,212" fill="none" stroke="#1E2229" strokeWidth="5" />
+                    <path d="M 425,212 C 425,198 455,198 455,212" fill="none" stroke="#1E2229" strokeWidth="5" />
+                  </g>
+
+                  {/* WHEELS & AXLES */}
+                  <g id="all-wheels">
+                    {/* Lowbed Rear Triple Axle Wheels */}
+                    <circle cx="60" cy="232" r="11" fill="#1E2229" stroke="#94A3B8" strokeWidth="2.5" />
+                    <circle cx="60" cy="232" r="4" fill="#F59E0B" />
+
+                    <circle cx="85" cy="232" r="11" fill="#1E2229" stroke="#94A3B8" strokeWidth="2.5" />
+                    <circle cx="85" cy="232" r="4" fill="#F59E0B" />
+
+                    <circle cx="110" cy="232" r="11" fill="#1E2229" stroke="#94A3B8" strokeWidth="2.5" />
+                    <circle cx="110" cy="232" r="4" fill="#F59E0B" />
+
+                    {/* Tractor Truck Heavy Wheels */}
+                    <circle cx="365" cy="232" r="13" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
+                    <circle cx="365" cy="232" r="5" fill="#94A3B8" />
+
+                    <circle cx="395" cy="232" r="13" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
+                    <circle cx="395" cy="232" r="5" fill="#94A3B8" />
+
+                    <circle cx="440" cy="232" r="13" fill="#1E2229" stroke="#E2E8F0" strokeWidth="3" />
+                    <circle cx="440" cy="232" r="5" fill="#F59E0B" />
                   </g>
                 </svg>
               </motion.div>
 
               {/* Truck silhouette layer for extra tech-art depth */}
-              <div className="absolute bottom-4 right-4 text-brand-dark opacity-[0.05] pointer-events-none select-none w-32 h-32">
+              <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 text-brand-dark opacity-[0.05] pointer-events-none select-none w-24 h-24 sm:w-32 sm:h-32">
                 <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17,11L15,5H5V18H7A3,3 0 0,0 10,21A3,3 0 0,0 13,18H15A3,3 0 0,0 18,21A3,3 0 0,0 21,18H23V11M10,19A1,1 0 0,1 9,18A1,1 0 0,1 10,17A1,1 0 0,1 11,18A1,1 0 0,1 10,19M18,19A1,1 0 0,1 17,18A1,1 0 0,1 18,17A1,1 0 0,1 19,18A1,1 0 0,1 18,19Z" />
                 </svg>
@@ -296,34 +339,59 @@ export default function Hero({ language, onNavigateToCalculator, onNavigateToCor
 
             </div>
 
-            {/* Overlapping Floating stats badge precisely mimicking SaaS split style */}
+            {/* Overlapping Floating stats badge - Flutuação Vertical Parallax (Responsivo Mobile) */}
             <motion.div
-              initial={{ opacity: 0, x: -40, y: -40 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
-              className="absolute top-12 left-[-20px] bg-[#1E2229] text-white px-6 py-5 rounded-2xl z-20 shadow-2xl border border-slate-700/30 flex flex-col min-w-[160px]"
+              initial={{ opacity: 0, x: -20, y: -20 }}
+              animate={{ 
+                opacity: 1, 
+                x: 0, 
+                y: [0, -6, 0] 
+              }}
+              transition={{
+                y: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                },
+                opacity: { duration: 0.6, delay: 1.1 },
+                x: { duration: 0.6, delay: 1.1 }
+              }}
+              className="absolute top-2 sm:top-6 lg:top-10 left-0 sm:left-[-10px] lg:left-[-20px] bg-[#1E2229] text-white p-3.5 sm:p-5 md:px-6 md:py-5 rounded-xl sm:rounded-2xl z-20 shadow-xl sm:shadow-2xl border border-slate-700/30 flex flex-col min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
             >
-              <span className="text-2xl font-display font-black text-[#F59E0B]">
+              <span className="text-lg sm:text-xl md:text-2xl font-display font-black text-[#F59E0B]">
                 140+
               </span>
-              <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-slate-300 mt-1">
+              <span className="text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold tracking-wider uppercase text-slate-300 mt-0.5 sm:mt-1">
                 {language === 'PT' ? 'Unidades de Frota' : 'Active Fleet Units'}
               </span>
             </motion.div>
 
-            {/* Overlapping Fuel/Efficiency floating badge */}
+            {/* Overlapping Fuel/Efficiency floating badge - Flutuação Vertical Parallax (Responsivo Mobile) */}
             <motion.div
-              initial={{ opacity: 0, x: 30, y: 30 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.3 }}
-              className="absolute bottom-8 right-[-10px] bg-white border border-slate-100 rounded-2xl p-4 shadow-xl flex items-center gap-3.5 z-20 max-w-[190px]"
+              initial={{ opacity: 0, x: 20, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                x: 0, 
+                y: [0, 6, 0] 
+              }}
+              transition={{
+                y: {
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8
+                },
+                opacity: { duration: 0.6, delay: 1.3 },
+                x: { duration: 0.6, delay: 1.3 }
+              }}
+              className="absolute bottom-2 sm:bottom-6 lg:bottom-8 right-0 sm:right-[-5px] lg:right-[-10px] bg-white border border-slate-100 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 md:p-4 shadow-lg sm:shadow-xl flex items-center gap-2 sm:gap-3.5 z-20 max-w-[155px] sm:max-w-[175px] md:max-w-[190px]"
             >
-              <div className="p-2.5 rounded-xl bg-amber-50 text-brand-yellow">
-                <Route className="w-5 h-5" />
+              <div className="p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-amber-50 text-brand-yellow shrink-0">
+                <Route className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <p className="text-[9px] text-slate-400 font-mono font-bold">GPS TELEMETRY</p>
-                <p className="text-xs font-display font-extrabold text-brand-dark mt-0.5">SADC Corridor Active</p>
+                <p className="text-[8px] sm:text-[9px] text-slate-400 font-mono font-bold">GPS TELEMETRY</p>
+                <p className="text-[10px] sm:text-xs font-display font-extrabold text-brand-dark mt-0.5">SADC Corridor Active</p>
               </div>
             </motion.div>
 
