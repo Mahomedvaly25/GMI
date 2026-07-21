@@ -16,7 +16,7 @@ export default function Footer({ language }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start text-left pb-12 border-b border-slate-100">
           
           {/* COLUNA 1 (Logo + Conteúdo Agrupado) */}
-          <div className="flex flex-col items-start space-y-4">
+          <div className="space-y-4">
             <img
               src="/assets/logo-completo-mgi.webp"
               alt="MGI Lda. - Transportes e Logística"

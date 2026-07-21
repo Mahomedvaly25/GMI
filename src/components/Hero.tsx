@@ -228,7 +228,7 @@ export default function Hero({ language, onNavigateToCalculator, onNavigateToCor
                   opacity: { duration: 0.5, delay: 0.5 },
                   scale: { type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }
                 }}
-                className="w-full relative z-10 mt-1 sm:mt-2 scale-95 sm:scale-100 origin-center"
+                className="w-full relative z-10 mt-1 sm:mt-2 scale-90 sm:scale-95 md:scale-100 origin-center"
               >
                 <svg viewBox="0 0 480 270" className="w-full h-auto object-contain max-w-full drop-shadow-[0_15px_30px_rgba(30,34,41,0.08)]">
                   {/* Soft Ground Shadows */}
