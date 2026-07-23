@@ -18,9 +18,9 @@ export default function Footer({ language }: FooterProps) {
           {/* COLUNA 1 (Logo + Conteúdo Agrupado) */}
           <div className="space-y-4">
             <img
-              src="/assets/logo-completo-mgi.webp"
+              src="/assets/logo-completo-mgi.png"
               alt="MGI Lda. - Transportes e Logística"
-              className="w-full max-w-[240px] h-auto object-contain"
+              className="w-full max-w-[200px] md:max-w-[220px] h-auto object-contain mb-4"
             />
             <p className="text-sm text-slate-600 max-w-sm leading-relaxed font-light">
               {language === 'PT'

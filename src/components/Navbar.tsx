@@ -69,9 +69,9 @@ export default function Navbar({
           {/* Logo Brand Title */}
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
-              src="/assets/logo-mgi.png"
+              src="/assets/logo-horizontal-mgi.png"
               alt="MGI Lda. - Mozambique Group Investments"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-9 md:h-11 w-auto object-contain"
             />
           </div>
 
