@@ -64,14 +64,14 @@ export default function Navbar({
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100/80 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           
           {/* Logo Brand Title */}
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
-              src="/assets/logo-horizontal-mgi.png"
+              src="/assets/logo-horizontal-mgi.webp"
               alt="MGI Lda. - Mozambique Group Investments"
-              className="h-9 md:h-11 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain py-1"
             />
           </div>
 
