@@ -134,7 +134,7 @@ export default function CommercialContact({ language }: CommercialContactProps) 
               <div>
                 {/* Logo Oficial Transparente */}
                 <img
-                  src="/assets/logo-completo-mgi.png"
+                  src="/assets/logo-completo-mgi.webp"
                   alt="MGI Lda. - Solicitação Oficial de Cotação"
                   className="w-full max-w-[180px] md:max-w-[200px] h-auto mx-auto lg:mx-0 mb-6 object-contain"
                 />
